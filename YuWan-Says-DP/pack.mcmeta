@@ -1,0 +1,18 @@
+{
+    "pack": {
+        "description": "鱼丸说-数据包包",
+        "pack_format": 71,
+        "supported_formats": {
+            "min_inclusive": 71,
+            "max_inclusive": 100
+        }
+    },
+    "filter": {
+        "block": [
+            {
+                "namespace": "minecraft",
+                "path": "advancement"
+            }
+        ]
+    }
+}

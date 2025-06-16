@@ -1,0 +1,25 @@
+# 开始游戏
+
+scoreboard players set #System GameStatus 1
+
+clear @a
+effect clear @a
+effect give @a instant_health 3 255 true
+
+execute at @r run spreadplayers ~ ~ 160 800 true @a
+
+title @a times 0t 3s 0t
+title @a title {text: "游戏开始"}
+execute at @a run playsound minecraft:entity.player.levelup record @s ~ ~ ~
+
+scoreboard players operation #Timer EventIntervalTime = #System EventIntervalTime
+scoreboard players operation #Timer EventDuraTime = #System EventDuraTime
+scoreboard objectives setdisplay sidebar Points
+
+bossbar add yws:event_name [{text: "当前事件："}]
+bossbar set yws:event_name players @a
+execute store result bossbar yws:event_name max run scoreboard players get #System EventDuraTime
+bossbar add yws:interval_time [{text: "下一事件倒计时："}]
+execute store result bossbar yws:interval_time max run scoreboard players get #System EventIntervalTime
+
+function yws:game/event/pool/roll/main
