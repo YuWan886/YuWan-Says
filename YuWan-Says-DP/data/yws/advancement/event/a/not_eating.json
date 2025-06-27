@@ -1,0 +1,7 @@
+{
+    "criteria": {
+        "not_eating": {
+            "trigger": "consume_item"
+        }
+    }
+}

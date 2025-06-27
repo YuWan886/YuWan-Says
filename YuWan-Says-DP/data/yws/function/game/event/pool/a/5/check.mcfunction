@@ -1,2 +1,1 @@
-
-execute as @a[tag=!out,predicate=yws:event/5] run function yws:game/event/out_1
+execute as @a[tag=!out,predicate=yws:event/5] at @s run function yws:game/event/out_1

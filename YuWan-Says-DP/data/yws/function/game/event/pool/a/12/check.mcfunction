@@ -1,0 +1,1 @@
+execute as @a[tag=!out,scores={OpenChest=1..}] at @s run function yws:game/event/out_1

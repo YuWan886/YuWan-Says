@@ -27,3 +27,9 @@ scoreboard players add @a[tag=gold_rush_3rd] Points 1
 tag @a[tag=gold_rush_1st] remove gold_rush_1st
 tag @a[tag=gold_rush_2nd] remove gold_rush_2nd
 tag @a[tag=gold_rush_3rd] remove gold_rush_3rd
+
+scoreboard players set @a MinedGoldOre 0
+scoreboard players set @a MinedDeepGoldOre 0
+scoreboard players set @a MinedGoldAll 0
+scoreboard players set @a PlacedGoldOre 0
+scoreboard players set @a PlacedDeepGoldOre 0

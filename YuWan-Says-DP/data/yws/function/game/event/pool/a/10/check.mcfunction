@@ -1,1 +1,1 @@
-execute as @a unless entity @s[nbt={active_effects:[{id:"minecraft:levitation"}]}] run effect give @s levitation 120 0 true
+execute as @a unless entity @s[nbt={active_effects:[{id:"minecraft:levitation"}]}] at @s run effect give @s levitation 120 0 true

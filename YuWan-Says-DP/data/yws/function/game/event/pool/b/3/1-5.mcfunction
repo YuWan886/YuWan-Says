@@ -42,3 +42,9 @@ tag @a[tag=gold_rush_2nd] remove gold_rush_2nd
 tag @a[tag=gold_rush_3rd] remove gold_rush_3rd
 tag @a[tag=gold_rush_4th] remove gold_rush_4th
 tag @a[tag=gold_rush_5th] remove gold_rush_5th
+
+scoreboard players set @a MinedGoldOre 0
+scoreboard players set @a MinedDeepGoldOre 0
+scoreboard players set @a MinedGoldAll 0
+scoreboard players set @a PlacedGoldOre 0
+scoreboard players set @a PlacedDeepGoldOre 0

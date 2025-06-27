@@ -14,25 +14,23 @@ def load_config():
         "zh_cn_output_directory": os.path.abspath(os.path.join(base_dir, ".")),
     }
 
-# 支持转义字符的正则模式
-text_pattern = re.compile(r'(?<!\\)".*?(?<!\\)"')
+
+# 正则模式用于匹配JSON-like结构，如 {text: "..."} 或 {translate: "..."}
+json_pattern = re.compile(r'\{[^\{\}]*?\}', re.DOTALL)
 
 
 def save_translations(translations, output_path, zh_cn_path):
     """保存翻译文件并创建副本"""
     try:
-        # 检查翻译内容是否为空
         if not translations:
             print("警告: 翻译内容为空，跳过保存")
             return
             
-        # 备份现有翻译文件
         existing_translations = {}
         if os.path.exists(output_path):
             with open(output_path, "r", encoding="utf-8") as f:
                 existing_translations = json.load(f)
         
-        # 合并新旧翻译内容(保留现有翻译)
         merged_translations = {**existing_translations, **translations}
         
         with open(output_path, "w", encoding="utf-8") as out_file:
@@ -55,47 +53,33 @@ async def traverse_and_replace_texts(
     modified_files = 0
     for root, dirs, files in os.walk(directory):
         for file in files:
-            if file.endswith(".json") and file != "config.json":  # Skip config.json
+            if file.endswith(".json") and file != "config.json":
                 file_path = os.path.join(root, file)
-                with open(file_path, "r", encoding="utf-8") as f:
-                    original_data = json.load(f)
-                
-                new_data = replace_text(original_data.copy(), translations, number, "")
-                
-                if new_data != original_data:
-                    modified_files += 1
+                try:
+                    with open(file_path, "r", encoding="utf-8") as f:
+                        original_data = json.load(f)
+                    
                     rel_path = os.path.relpath(file_path, directory)
                     if "data/" in rel_path:
                         rel_path = rel_path[rel_path.index("data/") + len("data/") :]
                     rel_path = rel_path.replace("data/", "")
                     
-                    with open(file_path, "w", encoding="utf-8") as f:
-                        json.dump(new_data, f, ensure_ascii=False, indent=4)
-                    print(f"已修改: {rel_path}")
-                # Remove first three path components
-                path_components = rel_path.replace(os.sep, ".").split(".")
-                if len(path_components) > 3:
-                    key_prefix = ".".join(path_components[3:])
-                else:
-                    key_prefix = ".".join(path_components)
-                if key_prefix.endswith(".json"):
-                    key_prefix = key_prefix[:-5]
+                    path_components = rel_path.replace(os.sep, ".").split(".")
+                    key_prefix = ".".join(path_components[3:] if len(path_components) > 3 else path_components)
+                    if key_prefix.endswith(".json"):
+                        key_prefix = key_prefix[:-5]
 
-                try:
-                    with open(file_path, "r", encoding="utf-8") as f:
-                        data = json.load(f)
-                        print(f"正在处理JSON文件: {file_path}")
-                        replace_text(data, translations, number, key_prefix)
-
-                    with open(file_path, "w", encoding="utf-8") as f:
-                        json.dump(data, f, ensure_ascii=False, indent=4)
-
+                    new_data = replace_text(original_data, translations, number, key_prefix)
+                    
+                    if new_data != original_data:
+                        modified_files += 1
+                        with open(file_path, "w", encoding="utf-8") as f:
+                            json.dump(new_data, f, ensure_ascii=False, indent=4)
+                        print(f"已修改: {rel_path}")
                 except json.JSONDecodeError as e:
                     print(f"JSON文件 {file_path} 解码错误: {e}")
-                    continue
                 except Exception as e:
                     print(f"处理JSON文件 {file_path} 时出错: {e}")
-                    continue
 
     output_file_path = os.path.join(zh_cn_output_dir, output_file_name)
     zh_cn_file_path = os.path.join(zh_cn_output_dir, "zh_cn.json")
@@ -103,37 +87,115 @@ async def traverse_and_replace_texts(
 
 
 def replace_text(data, translations, number, key_prefix):
-    """递归替换JSON中的text字段为translate"""
+    """递归替换JSON中的text字段为translate，处理转义符号"""
     if isinstance(data, dict):
-        if "type" in data and data["type"] == "text":
-            del data["type"]
-
-        keys = list(data.keys())
-        for key in keys:
-            if key == "text" and isinstance(data[key], str):
-                # 处理转义字符
-                text_value = data[key].replace('\\"', '"')
-                translation_key = f"{key_prefix}.{number[0]}"
-                existing_key = next(
-                    (k for k, v in translations.items() if v == text_value), None
-                )
-                if existing_key:
-                    data["translate"] = existing_key
-                else:
-                    translations[translation_key] = text_value
-                    data["translate"] = translation_key
-                    number[0] += 1
-                del data["text"]
+        if "text" in data and isinstance(data["text"], str):
+            # 处理转义符号，保留原始格式
+            text_value = data["text"]
+            translation_key = f"{key_prefix}.{number[0]}"
+            existing_key = next((k for k, v in translations.items() if v == text_value), None)
+            if existing_key:
+                data["translate"] = existing_key
             else:
-                data[key] = replace_text(data[key], translations, number, key_prefix)
+                translations[translation_key] = text_value  # 保留原始转义符号
+                data["translate"] = translation_key
+                number[0] += 1
+            if "type" in data and data["type"] == "text":
+                del data["type"]
+            del data["text"]
+        for key in data:
+            data[key] = replace_text(data[key], translations, number, key_prefix)
         return data
     elif isinstance(data, list):
         return [replace_text(item, translations, number, key_prefix) for item in data]
-    else:
-        return data
+    return data
+
+
+def process_json_like_string(json_str, namespace_prefix, namespace_counts, translations):
+    """处理单个JSON-like字符串，处理转义符号"""
+    try:
+        # 尝试解析为JSON
+        json_data = json.loads(json_str)
+        
+        # 如果是数组，处理每个元素
+        if isinstance(json_data, list):
+            modified = False
+            new_items = []
+            for item in json_data:
+                if isinstance(item, dict) and "text" in item:
+                    text_value = item["text"]
+                    if "$" in text_value:
+                        new_items.append(item)
+                        continue
+                        
+                    translation_key = f"{namespace_prefix}.{namespace_counts[namespace_prefix]}"
+                    existing_key = next((k for k, v in translations.items() if v == text_value), None)
+                    
+                    if not existing_key:
+                        translations[translation_key] = text_value  # 保留原始转义符号
+                        namespace_counts[namespace_prefix] += 1
+                        new_key = translation_key
+                    else:
+                        new_key = existing_key
+                    
+                    new_item = {"translate": new_key}
+                    if "color" in item:
+                        new_item["color"] = item["color"]
+                    new_items.append(new_item)
+                    modified = True
+                else:
+                    new_items.append(item)
+            
+            if modified:
+                return json.dumps(new_items, ensure_ascii=False)
+            return json_str
+        
+        # 如果是对象，处理text字段
+        elif isinstance(json_data, dict) and "text" in json_data:
+            text_value = json_data["text"]
+            if "$" in text_value:
+                return json_str
+                
+            translation_key = f"{namespace_prefix}.{namespace_counts[namespace_prefix]}"
+            existing_key = next((k for k, v in translations.items() if v == text_value), None)
+            
+            if not existing_key:
+                translations[translation_key] = text_value  # 保留原始转义符号
+                namespace_counts[namespace_prefix] += 1
+                new_key = translation_key
+            else:
+                new_key = existing_key
+            
+            new_data = {"translate": new_key}
+            if "color" in json_data:
+                new_data["color"] = json_data["color"]
+            return json.dumps(new_data, ensure_ascii=False)
+        
+        return json_str
+    except json.JSONDecodeError:
+        # 如果不是有效的JSON，尝试直接匹配text字段
+        text_match = re.search(r'text\s*:\s*"([^"]*)"', json_str)
+        if text_match:
+            text_value = text_match.group(1)
+            if "$" in text_value:
+                return json_str
+                
+            translation_key = f"{namespace_prefix}.{namespace_counts[namespace_prefix]}"
+            existing_key = next((k for k, v in translations.items() if v == text_value), None)
+            
+            if not existing_key:
+                translations[translation_key] = text_value  # 保留原始转义符号
+                namespace_counts[namespace_prefix] += 1
+                new_key = translation_key
+            else:
+                new_key = existing_key
+            
+            return json_str.replace(text_match.group(0), f'translate: "{new_key}"')
+        return json_str
+
 
 async def extract_translations(directory, zh_cn_output_dir=None, output_file_name="en_us.json"):
-    """从mcfunction文件中提取翻译文本"""
+    """从mcfunction文件中提取翻译文本，包括JSON-like结构"""
     if zh_cn_output_dir is None:
         base_dir = os.path.dirname(os.path.abspath(__file__))
         zh_cn_output_dir = os.path.abspath(os.path.join(base_dir, "../YuWan-Says-RP", "assets", "minecraft", "lang"))
@@ -151,16 +213,8 @@ async def extract_translations(directory, zh_cn_output_dir=None, output_file_nam
                 data_position = relative_path.find("data.")
                 if data_position != -1:
                     relative_path = relative_path[data_position + len("data.") :]
-                # Remove first three path components
                 path_components = relative_path.replace(os.sep, ".").split(".")
-                if len(path_components) > 3:
-                    namespace_prefix = ".".join(path_components[3:]).replace(
-                        ".mcfunction", ""
-                    )
-                else:
-                    namespace_prefix = ".".join(path_components).replace(
-                        ".mcfunction", ""
-                    )
+                namespace_prefix = ".".join(path_components[3:] if len(path_components) > 3 else path_components).replace(".mcfunction", "")
 
                 if namespace_prefix not in namespace_counts:
                     namespace_counts[namespace_prefix] = 1
@@ -169,35 +223,33 @@ async def extract_translations(directory, zh_cn_output_dir=None, output_file_nam
                     with open(file_path, "r", encoding="utf-8") as f:
                         content = f.read()
 
-                    matches = text_pattern.findall(content)
-                    for match in matches:
-                        original_text = match[1:-1]  # Remove quotes
-                        quote_type = match[0]
-
-                        if "$" in original_text:
+                    modified_content = content
+                    # 处理JSON-like结构
+                    json_matches = json_pattern.findall(content)
+                    for json_str in json_matches:
+                        try:
+                            # 跳过已经包含translate的结构
+                            if 'translate:' in json_str:
+                                continue
+                                
+                            # 处理JSON-like字符串
+                            new_json_str = process_json_like_string(
+                                json_str, 
+                                namespace_prefix, 
+                                namespace_counts, 
+                                translations
+                            )
+                            
+                            if new_json_str != json_str:
+                                modified_content = modified_content.replace(json_str, new_json_str)
+                        except Exception as e:
+                            print(f"警告: 处理JSON结构时出错: {e}")
                             continue
 
-                        translation_key = (
-                            f"{namespace_prefix}.{namespace_counts[namespace_prefix]}"
-                        )
-                        existing_key = next(
-                            (k for k, v in translations.items() if v == original_text),
-                            None,
-                        )
-
-                        if existing_key:
-                            translation_key = existing_key
-                        else:
-                            translations[translation_key] = original_text
-                            namespace_counts[namespace_prefix] += 1
-
-                        content = content.replace(
-                            match,
-                            f"translate: {quote_type}{translation_key}{quote_type}",
-                        )
-
-                    with open(file_path, "w", encoding="utf-8") as f:
-                        f.write(content)
+                    if modified_content != content:
+                        with open(file_path, "w", encoding="utf-8") as f:
+                            f.write(modified_content)
+                        print(f"已修改mcfunction文件: {file_path}")
 
                 except Exception as e:
                     print(f"处理mcfunction文件 {file_path} 时出错: {e}")
@@ -212,28 +264,24 @@ async def extract_translations(directory, zh_cn_output_dir=None, output_file_nam
 
 async def apply_translations(directory, translations):
     """将翻译键写回原始文件"""
-    # Process JSON files
     for root, dirs, files in os.walk(directory):
         for file in files:
-            if file.endswith(".json") and file != "config.json":  # Skip config.json
+            if file.endswith(".json") and file != "config.json":
                 file_path = os.path.join(root, file)
                 try:
                     with open(file_path, "r", encoding="utf-8") as f:
                         data = json.load(f)
                         print(f"正在写回JSON文件: {file_path}")
                         updated_data = update_translations(data, translations)
-
                     with open(file_path, "w", encoding="utf-8") as f:
                         json.dump(updated_data, f, ensure_ascii=False, indent=4)
                         print(f"成功写回JSON文件: {file_path}")
-
                 except json.JSONDecodeError as e:
                     print(f"错误: JSON文件 {file_path} 解码错误: {e}")
                 except Exception as e:
                     print(f"错误: 写回JSON文件 {file_path} 时出错: {e}")
 
-    # Process .mcfunction files
-    text_pattern = re.compile(r'(translate:\s*([\'"])([^\2]*?)\2)')
+    translate_pattern = re.compile(r'(translate:\s*"([^"]*)")')
     for root, dirs, files in os.walk(directory):
         for file in files:
             if file.endswith(".mcfunction"):
@@ -242,26 +290,22 @@ async def apply_translations(directory, translations):
                     with open(file_path, "r", encoding="utf-8") as f:
                         content = f.read()
 
-                    matches = text_pattern.findall(content)
                     modified = False
-                    for match in matches:
-                        full_match, quote_type, translation_key = match
-                        if translation_key in translations:
-                            new_text = translations[translation_key].replace(
-                                quote_type, f"\\{quote_type}"
-                            )
+                    # 直接替换translate字段为text字段
+                    for match in translate_pattern.finditer(content):
+                        translate_key = match.group(2)
+                        if translate_key in translations:
+                            new_text = translations[translate_key]  # 保留原始转义符号
                             content = content.replace(
-                                full_match, f"text: {quote_type}{new_text}{quote_type}"
+                                match.group(0), 
+                                f'text: "{new_text}"'
                             )
                             modified = True
-
+                    
                     if modified:
                         with open(file_path, "w", encoding="utf-8") as f:
                             f.write(content)
                         print(f"成功写回mcfunction文件: {file_path}")
-                    else:
-                        print(f"未在 {file_path} 中找到需要替换的翻译键")
-
                 except Exception as e:
                     print(f"错误: 写回mcfunction文件 {file_path} 时出错: {e}")
 
@@ -272,15 +316,13 @@ def update_translations(data, translations):
         updated_data = {}
         for key, value in data.items():
             if key == "translate" and isinstance(value, str) and value in translations:
-                updated_data["text"] = translations[value]
+                updated_data["text"] = translations[value]  # 保留原始转义符号
             else:
                 updated_data[key] = update_translations(value, translations)
         return updated_data
     elif isinstance(data, list):
         return [update_translations(item, translations) for item in data]
-    else:
-        return data
-
+    return data
 
 
 async def write_back_translations(directory, zh_cn_output_dir):
@@ -304,18 +346,12 @@ async def write_back_translations(directory, zh_cn_output_dir):
 
 async def show_menu():
     """显示菜单并处理用户输入"""
-    # 使用硬编码配置
     base_dir = os.path.dirname(os.path.abspath(__file__))
     directory = os.path.abspath(os.path.join(base_dir, "../YuWan-Says-DP"))
-    
-    # 确保输出目录存在
     zh_cn_output_dir = os.path.abspath(os.path.join(base_dir, "../YuWan-Says-RP", "assets", "minecraft", "lang"))
-    try:
-        os.makedirs(zh_cn_output_dir, exist_ok=True)
-        print(f"输出目录已创建: {zh_cn_output_dir}")
-    except Exception as e:
-        print(f"错误: 无法创建输出目录 {zh_cn_output_dir}: {e}")
-        return
+    
+    os.makedirs(zh_cn_output_dir, exist_ok=True)
+    print(f"输出目录已创建: {zh_cn_output_dir}")
 
     while True:
         print("\n=== 翻译处理菜单 ===")

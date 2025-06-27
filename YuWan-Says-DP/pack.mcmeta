@@ -7,12 +7,5 @@
             "max_inclusive": 100
         }
     },
-    "filter": {
-        "block": [
-            {
-                "namespace": "minecraft",
-                "path": "advancement"
-            }
-        ]
-    }
+    "filter": {}
 }

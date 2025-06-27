@@ -1,0 +1,1 @@
+execute as @a[tag=!out,advancements={yws:event/a/not_eating=true}] at @s run function yws:game/event/out_1

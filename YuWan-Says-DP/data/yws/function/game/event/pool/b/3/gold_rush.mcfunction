@@ -5,8 +5,9 @@ title @a subtitle {text: "淘金热"}
 
 bossbar set yws:event_name name [{text: "当前事件："},{text: "淘金热"}]
 
-scoreboard players set @a MinedGoldOre 0
-scoreboard players set @a MinedDeepGoldOre 0
-scoreboard players set @a MinedGoldAll 0
-scoreboard players set @a PlacedGoldOre 0
-scoreboard players set @a PlacedDeepGoldOre 0
+scoreboard objectives add MinedGoldOre mined:gold_ore
+scoreboard objectives add MinedDeepGoldOre mined:deepslate_gold_ore
+scoreboard objectives add MinedGoldAll dummy {text: "淘金数",color: "gold",bold:true}
+scoreboard objectives add PlacedGoldOre used:gold_ore
+scoreboard objectives add PlacedDeepGoldOre used:deepslate_gold_ore
+

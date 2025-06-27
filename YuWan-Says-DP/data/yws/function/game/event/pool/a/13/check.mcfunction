@@ -1,0 +1,15 @@
+execute as @a[tag=!out,scores={UsedIronSword=1..}] at @s run function yws:game/event/out_1
+execute as @a[tag=!out,scores={UsedIronAxe=1..}] at @s run function yws:game/event/out_1
+execute as @a[tag=!out,scores={UsedIronPickaxe=1..}] at @s run function yws:game/event/out_1
+execute as @a[tag=!out,scores={UsedIronHoe=1..}] at @s run function yws:game/event/out_1
+execute as @a[tag=!out,scores={UsedIronShovel=1..}] at @s run function yws:game/event/out_1
+execute as @a[tag=!out,scores={UsedGoldenSword=1..}] at @s run function yws:game/event/out_1
+execute as @a[tag=!out,scores={UsedGoldenAxe=1..}] at @s run function yws:game/event/out_1
+execute as @a[tag=!out,scores={UsedGoldenPickaxe=1..}] at @s run function yws:game/event/out_1
+execute as @a[tag=!out,scores={UsedGoldenHoe=1..}] at @s run function yws:game/event/out_1
+execute as @a[tag=!out,scores={UsedGoldenShovel=1..}] at @s run function yws:game/event/out_1
+execute as @a[tag=!out,scores={UsedDiamondSword=1..}] at @s run function yws:game/event/out_1
+execute as @a[tag=!out,scores={UsedDiamondAxe=1..}] at @s run function yws:game/event/out_1
+execute as @a[tag=!out,scores={UsedDiamondPickaxe=1..}] at @s run function yws:game/event/out_1
+execute as @a[tag=!out,scores={UsedDiamondHoe=1..}] at @s run function yws:game/event/out_1
+execute as @a[tag=!out,scores={UsedDiamondShovel=1..}] at @s run function yws:game/event/out_1
