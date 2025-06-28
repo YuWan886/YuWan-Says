@@ -1,5 +1,7 @@
 # 结束游戏
 
+function yws:game/settlement/main
+
 scoreboard players set #System GameStatus 0
 scoreboard players set #Game EventType 0
 scoreboard players set #Game EventCount 0

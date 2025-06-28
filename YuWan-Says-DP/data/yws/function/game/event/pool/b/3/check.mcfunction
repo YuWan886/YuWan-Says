@@ -1,2 +1,2 @@
-execute if score #Timer EventDuraTime matches 0 run function yws:game/event/pool/b/3/settlement
+execute if score #Timer EventDuraTime matches 1 run function yws:game/event/pool/b/3/settlement
 

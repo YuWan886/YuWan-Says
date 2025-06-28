@@ -5,7 +5,7 @@ title @a subtitle {text: "真香"}
 
 bossbar set yws:event_name name [{text: "当前事件："},{text: "真香"}]
 
-scoreboard objectives add EatenRottenFleshTimes used:rotten_flesh
+scoreboard objectives add EatenRottenFleshTimes used:rotten_flesh {text:"食用腐肉次数"}
 scoreboard players set @a EatenRottenFleshTimes 0
 scoreboard players set #Game EatenRottenFleshTimes 0
 

@@ -3,7 +3,7 @@
 scoreboard players set #System GameStatus 0
 scoreboard players set #System EventDuraTime 180
 scoreboard players set #System EventIntervalTime 10
-scoreboard players set #System EventCount 10
+scoreboard players set #System EventCount 15
 scoreboard players set #System TeamMode 0
 scoreboard players set #System GameRule_Keep 1
 

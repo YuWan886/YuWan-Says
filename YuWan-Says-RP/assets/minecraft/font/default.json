@@ -1,0 +1,13 @@
+{
+    "providers": [
+        {
+            "type": "bitmap",
+            "file": "minecraft:font/menu_icon.png",
+            "ascent": 40,
+            "height": 60,
+            "chars": [
+                "\ue001"
+            ]
+        }
+    ]
+}

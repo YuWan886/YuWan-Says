@@ -5,10 +5,12 @@ title @a subtitle {text: "快乐恶魂冲鸭"}
 
 bossbar set yws:event_name name [{text: "当前事件："},{text: "快乐恶魂冲鸭"}]
 
-scoreboard objectives add HappyGhastRideCm custom:happy_ghast_one_cm
+scoreboard objectives add HappyGhastRideCm custom:happy_ghast_one_cm {text:"骑乘快乐恶魂移动距离"}
 scoreboard players set @a HappyGhastRideCm 0
 scoreboard players set #Game HappyGhastRideCm 0
 
-execute store result score #Game HappyGhastRideCm run random value 64..256
+execute store result score #Game HappyGhastRideCm run random value 640..2560
 
-tellraw @a [{text: "骑乘快乐恶魂移动",color: "gray",italic:true},{score:{name:"#Game",objective:"HappyGhastRideCm"},color:"aqua"},{text: "格"}]
+tellraw @a [{text: "骑乘快乐恶魂移动至少",color: "gray",italic:true},{score:{name:"#Game",objective:"HappyGhastRideCm"},color:"aqua"},{text: "cm"}]
+
+give @a happy_ghast_spawn_egg[entity_data={id:"happy_ghast",equipment:{body:{count:1,id:"minecraft:magenta_harness"},saddle:{count:1,id:"minecraft:saddle"}}}]

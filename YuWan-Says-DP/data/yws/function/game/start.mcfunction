@@ -5,6 +5,7 @@ scoreboard players set #System GameStatus 1
 clear @a
 effect clear @a
 effect give @a instant_health 3 255 true
+effect give @a saturation 3 255 true
 # 出生点
 spreadplayers 0 0 80 450 true @a
 spawnpoint @s ~ ~ ~

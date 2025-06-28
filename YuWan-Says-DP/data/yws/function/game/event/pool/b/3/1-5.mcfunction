@@ -24,10 +24,10 @@ execute as @a if score @s MinedGoldAll = @e[type=marker,tag=5th,limit=1] MinedGo
 kill @e[type=marker,tag=gold_rush]
 
 tellraw @a [\
-           {text: "恭喜"},{selector: "@a[tag=gold_rush_1st]"},{text: "获得"},{text: "第一名"},\
-           {text: "恭喜"},{selector: "@a[tag=gold_rush_2nd]"},{text: "获得"},{text: "第二名"},\
-           {text: "恭喜"},{selector: "@a[tag=gold_rush_3rd]"},{text: "获得"},{text: "第三名"},\
-           {text: "恭喜"},{selector: "@a[tag=gold_rush_4th]"},{text: "获得"},{text: "第四名"},\
+           {text: "恭喜"},{selector: "@a[tag=gold_rush_1st]"},{text: "获得"},{text: "第一名"},"\n",\
+           {text: "恭喜"},{selector: "@a[tag=gold_rush_2nd]"},{text: "获得"},{text: "第二名"},"\n",\
+           {text: "恭喜"},{selector: "@a[tag=gold_rush_3rd]"},{text: "获得"},{text: "第三名"},"\n",\
+           {text: "恭喜"},{selector: "@a[tag=gold_rush_4th]"},{text: "获得"},{text: "第四名"},"\n",\
            {text: "恭喜"},{selector: "@a[tag=gold_rush_5th]"},{text: "获得"},{text: "第五名"}]
            
 

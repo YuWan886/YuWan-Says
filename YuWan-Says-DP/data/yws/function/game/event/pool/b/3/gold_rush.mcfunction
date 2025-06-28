@@ -11,3 +11,4 @@ scoreboard objectives add MinedGoldAll dummy {text: "淘金数",color: "gold",bo
 scoreboard objectives add PlacedGoldOre used:gold_ore
 scoreboard objectives add PlacedDeepGoldOre used:deepslate_gold_ore
 
+scoreboard players add #Timer EventDuraTime 1

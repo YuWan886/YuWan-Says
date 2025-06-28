@@ -5,7 +5,7 @@ title @a subtitle {text: "钓鱼佬"}
 
 bossbar set yws:event_name name [{text: "当前事件："},{text: "钓鱼佬"}]
 
-scoreboard objectives add FishTimes custom:fish_caught
+scoreboard objectives add FishTimes custom:fish_caught {text:"捕鱼数"}
 scoreboard players set @a FishTimes 0
 scoreboard players set #Game FishTimes 0
 

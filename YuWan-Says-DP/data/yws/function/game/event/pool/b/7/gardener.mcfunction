@@ -5,7 +5,7 @@ title @a subtitle {text: "园丁"}
 
 bossbar set yws:event_name name [{text: "当前事件："},{text: "园丁"}]
 
-scoreboard objectives add PlantWheat used:wheat_seeds
+scoreboard objectives add PlantWheat used:wheat_seeds {text:"种植小麦种子数"}
 scoreboard players set @a PlantWheat 0
 scoreboard players set #Game PlantWheat 0
 

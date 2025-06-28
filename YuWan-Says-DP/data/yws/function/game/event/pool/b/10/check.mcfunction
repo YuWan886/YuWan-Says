@@ -1,1 +1,1 @@
-execute as @a[tag=!finish] at @s if score @s HappyGhastRideCm = #Game HappyGhastRideCm run function yws:game/event/finish_2
+execute as @a[tag=!finish] at @s if score @s HappyGhastRideCm >= #Game HappyGhastRideCm run function yws:game/event/finish_2
