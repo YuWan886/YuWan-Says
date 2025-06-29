@@ -3,7 +3,7 @@
 title @a title {text: "事件刷新"}
 title @a subtitle {text: "梦中的颜色"}
 
-tellraw @a {text: "挖到钻石",color: "gray",italic:true}
+tellraw @a ["",{text:"[Tip]",color:"yellow"},{text: "挖到钻石",color: "gray",italic:true}]
 
 bossbar set yws:event_name name [{text: "当前事件："},{text: "梦中的颜色"}]
 

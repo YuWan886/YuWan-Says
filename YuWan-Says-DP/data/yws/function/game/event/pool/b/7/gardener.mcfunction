@@ -11,4 +11,4 @@ scoreboard players set #Game PlantWheat 0
 
 execute store result score #Game PlantWheat run random value 4..8
 
-tellraw @a [{text: "种植",color: "gray",italic:true},{score:{name:"#Game",objective:"PlantWheat"},color:"aqua"},{text: "个小麦种子"}]
+tellraw @a ["",{text:"[Tip]",color:"yellow"},{text: "种植",color: "gray",italic:true},{score:{name:"#Game",objective:"PlantWheat"},color:"aqua"},{text: "个小麦种子"}]

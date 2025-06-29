@@ -103,7 +103,7 @@ execute if score #Game PlayerCount matches 16 run tellraw @a [{text: "恭喜 "},
 execute if score #Game PlayerCount matches 17 run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=17th]"}," - ",{score:{name:"@a[tag=17th]",objective:"Points"}},{text: " 获得"},{text: "第17名"}]
 execute if score #Game PlayerCount matches 18 run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=18th]"}," - ",{score:{name:"@a[tag=18th]",objective:"Points"}},{text: " 获得"},{text: "第18名"}]
 execute if score #Game PlayerCount matches 19 run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=19th]"}," - ",{score:{name:"@a[tag=19th]",objective:"Points"}},{text: " 获得"},{text: "第19名"}]
-execute if score #Game PlayerCount matches 20 run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=20th]"}," - ",{score:{name:"@a[tag=20th]",objective:"Points"}},{text: " 获得"},{text: "第20名"}]
+execute if score #Game PlayerCount matches 20.. run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=20th]"}," - ",{score:{name:"@a[tag=20th]",objective:"Points"}},{text: " 获得"},{text: "第20名"}]
 
 title @a times 10t 3s 8t
 title @a title [{text:"游戏结束！"}]

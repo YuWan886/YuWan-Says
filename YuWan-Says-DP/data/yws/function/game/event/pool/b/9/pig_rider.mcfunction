@@ -11,6 +11,6 @@ scoreboard players set #Game PigRideCm 0
 
 execute store result score #Game PigRideCm run random value 4800..25600
 
-tellraw @a [{text: "骑猪移动至少",color: "gray",italic:true},{score:{name:"#Game",objective:"PigRideCm"},color:"aqua"},{text: "cm"}]
+tellraw @a ["",{text:"[Tip]",color:"yellow"},{text: "骑猪移动至少",color: "gray",italic:true},{score:{name:"#Game",objective:"PigRideCm"},color:"aqua"},{text: "cm"}]
 
 give @a pig_spawn_egg[entity_data={id:"pig",equipment:{saddle:{"id":"saddle",count:1}}}]

@@ -11,4 +11,4 @@ scoreboard players set #Game BreedingTimes 0
 
 execute store result score #Game BreedingTimes run random value 1..5
 
-tellraw @a [{text: "繁殖动物",color: "gray",italic:true},{score:{name:"#Game",objective:"BreedingTimes"},color:"aqua"},{text: "次"}]
+tellraw @a ["",{text:"[Tip]",color:"yellow"},{text: "繁殖动物",color: "gray",italic:true},{score:{name:"#Game",objective:"BreedingTimes"},color:"aqua"},{text: "次"}]

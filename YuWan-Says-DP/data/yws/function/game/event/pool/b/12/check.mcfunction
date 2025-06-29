@@ -1,0 +1,12 @@
+execute if score #Game Killedby matches 1 as @a[tag=!finish,scores={Killedby_Zombie=1..}] at @s run function yws:game/event/finish_2
+execute if score #Game Killedby matches 2 as @a[tag=!finish,scores={Killedby_Skeleton=1..}] at @s run function yws:game/event/finish_2
+execute if score #Game Killedby matches 3 as @a[tag=!finish,scores={Killedby_Creeper=1..}] at @s run function yws:game/event/finish_2
+execute if score #Game Killedby matches 4 as @a[tag=!finish,scores={Killedby_Arrow=1..}] at @s run function yws:game/event/finish_2
+execute if score #Game Killedby matches 5 as @a[tag=!finish,advancements={yws:event/b/100_ways_to_die/anvil=true}] at @s run function yws:game/event/finish_2
+execute if score #Game Killedby matches 6 as @a[tag=!finish,advancements={yws:event/b/100_ways_to_die/cactus=true}] at @s run function yws:game/event/finish_2
+execute if score #Game Killedby matches 7 as @a[tag=!finish,advancements={yws:event/b/100_ways_to_die/campfire=true}] at @s run function yws:game/event/finish_2
+execute if score #Game Killedby matches 8 as @a[tag=!finish,advancements={yws:event/b/100_ways_to_die/drown=true}] at @s run function yws:game/event/finish_2
+execute if score #Game Killedby matches 9 as @a[tag=!finish,advancements={yws:event/b/100_ways_to_die/explosion=true}] at @s run function yws:game/event/finish_2
+execute if score #Game Killedby matches 10 as @a[tag=!finish,advancements={yws:event/b/100_ways_to_die/in_wall=true}] at @s run function yws:game/event/finish_2
+execute if score #Game Killedby matches 11 as @a[tag=!finish,advancements={yws:event/b/100_ways_to_die/starve=true}] at @s run function yws:game/event/finish_2
+

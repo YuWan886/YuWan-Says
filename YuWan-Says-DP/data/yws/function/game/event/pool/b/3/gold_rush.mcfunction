@@ -3,6 +3,8 @@
 title @a title {text: "事件刷新"}
 title @a subtitle {text: "淘金热"}
 
+tellraw @a ["",{text:"[Tip]",color:"yellow"},{text:"快去挖金吧！"}]
+
 bossbar set yws:event_name name [{text: "当前事件："},{text: "淘金热"}]
 
 scoreboard objectives add MinedGoldOre mined:gold_ore

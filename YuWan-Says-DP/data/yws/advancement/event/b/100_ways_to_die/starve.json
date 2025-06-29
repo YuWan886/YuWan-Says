@@ -1,0 +1,22 @@
+{
+    "criteria": {
+        "killedby_starve": {
+            "trigger": "entity_hurt_player",
+            "conditions": {
+                "damage": {
+                    "type": {
+                        "tags": [
+                            {
+                                "expected": true,
+                                "id": "yws:starve"
+                            }
+                        ]
+                    }
+                },
+                "player": {
+                    "nbt": "{Health:0f}"
+                }
+            }
+        }
+    }
+}

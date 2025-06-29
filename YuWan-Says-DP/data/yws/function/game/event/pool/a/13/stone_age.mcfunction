@@ -3,7 +3,7 @@
 title @a title {text: "事件刷新"}
 title @a subtitle {text: "石器时代"}
 
-tellraw @a {text: "不要使用铁/金/钻石工具",color: "gray",italic:true}
+tellraw @a ["",{text:"[Tip]",color:"yellow"},{text: "不要使用铁/金/钻石工具",color: "gray",italic:true}]
 
 bossbar set yws:event_name name [{text: "当前事件："},{text: "石器时代"}]
 

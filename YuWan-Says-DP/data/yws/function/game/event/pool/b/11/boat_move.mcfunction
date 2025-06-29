@@ -11,4 +11,4 @@ scoreboard players set #Game BoatRideCm 0
 
 execute store result score #Game BoatRideCm run random value 9600..25600
 
-tellraw @a [{text: "乘船移动至少",color: "gray",italic:true},{score:{name:"#Game",objective:"BoatRideCm"},color:"aqua"},{text: "cm"}]
+tellraw @a ["",{text:"[Tip]",color:"yellow"},{text: "乘船移动至少",color: "gray",italic:true},{score:{name:"#Game",objective:"BoatRideCm"},color:"aqua"},{text: "cm"}]

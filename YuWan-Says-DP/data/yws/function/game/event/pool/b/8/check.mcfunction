@@ -1,1 +1,1 @@
-execute as @a[tag=!finish] at @s if score @s FishTimes = #Game FishTimes run function yws:game/event/finish_2
+execute as @a[tag=!finish] at @s if score @s FishingTimes = #Game FishingTimes run function yws:game/event/finish_2

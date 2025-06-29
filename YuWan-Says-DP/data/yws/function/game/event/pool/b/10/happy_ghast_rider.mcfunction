@@ -11,6 +11,6 @@ scoreboard players set #Game HappyGhastRideCm 0
 
 execute store result score #Game HappyGhastRideCm run random value 640..2560
 
-tellraw @a [{text: "骑乘快乐恶魂移动至少",color: "gray",italic:true},{score:{name:"#Game",objective:"HappyGhastRideCm"},color:"aqua"},{text: "cm"}]
+tellraw @a ["",{text:"[Tip]",color:"yellow"},{text: "骑乘快乐恶魂移动至少",color: "gray",italic:true},{score:{name:"#Game",objective:"HappyGhastRideCm"},color:"aqua"},{text: "cm"}]
 
 give @a happy_ghast_spawn_egg[entity_data={id:"happy_ghast",equipment:{body:{count:1,id:"minecraft:magenta_harness"},saddle:{count:1,id:"minecraft:saddle"}}}]

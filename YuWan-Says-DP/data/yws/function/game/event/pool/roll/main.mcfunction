@@ -2,7 +2,7 @@
 bossbar set yws:event_name players @a
 bossbar set yws:interval_time players
 
-playsound minecraft:block.note_block.chime master @a ~ ~ ~ 1 1.5
+execute at @a run playsound minecraft:block.note_block.chime record @s ~ ~ ~ 1 1.5
 
 execute store result score #Game EventType run random value 1..2
 

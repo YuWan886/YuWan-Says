@@ -1,0 +1,22 @@
+{
+    "criteria": {
+        "killedby_explosion": {
+            "trigger": "entity_hurt_player",
+            "conditions": {
+                "damage": {
+                    "type": {
+                        "tags": [
+                            {
+                                "expected": true,
+                                "id": "yws:explosion"
+                            }
+                        ]
+                    }
+                },
+                "player": {
+                    "nbt": "{Health:0f}"
+                }
+            }
+        }
+    }
+}

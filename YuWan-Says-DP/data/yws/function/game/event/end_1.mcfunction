@@ -12,6 +12,7 @@ scoreboard players set #Game OutCount 0
 
 bossbar set yws:event_name players
 bossbar set yws:interval_time players @a
-
+# 卸载计分板
+function yws:util/uninstall
 # 结束游戏
 execute if score #Game EventCount = #System EventCount run function yws:game/end

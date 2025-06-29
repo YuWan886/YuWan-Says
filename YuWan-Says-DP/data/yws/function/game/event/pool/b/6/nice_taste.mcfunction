@@ -11,4 +11,4 @@ scoreboard players set #Game EatenRottenFleshTimes 0
 
 execute store result score #Game EatenRottenFleshTimes run random value 4..8
 
-tellraw @a [{text: "吃掉",color: "gray",italic:true},{score:{name:"#Game",objective:"EatenRottenFleshTimes"},color:"aqua"},{text: "个腐肉"}]
+tellraw @a ["",{text:"[Tip]",color:"yellow"},{text: "吃掉",color: "gray",italic:true},{score:{name:"#Game",objective:"EatenRottenFleshTimes"},color:"aqua"},{text: "个腐肉"}]
