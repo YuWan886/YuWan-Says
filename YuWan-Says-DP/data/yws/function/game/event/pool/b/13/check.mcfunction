@@ -1,0 +1,1 @@
+execute as @a[tag=!finish,advancements={story/enchant_item=true}] run function yws:game/event/finish_2

@@ -7,7 +7,8 @@ tellraw @a ["",{text:"[Tip]",color:"yellow"},{text: "生为社畜,死当鬼畜",
 
 bossbar set yws:event_name name [{text: "当前事件："},{text: "007"}]
 
-scoreboard players set @a Death_007 0
+scoreboard objectives add IsDead deathCount {text:"死亡检测"}
+scoreboard players set @a IsDead 0
 
 effect give @a nausea 120 3 true
 effect give @a slowness 120 2 true

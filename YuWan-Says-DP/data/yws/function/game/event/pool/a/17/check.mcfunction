@@ -1,0 +1,1 @@
+execute as @a[tag=!out] at @s if items entity @s weapon.offhand * run function yws:game/event/out_1

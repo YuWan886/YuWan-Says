@@ -7,12 +7,14 @@ scoreboard players operation #Timer EventIntervalTime = #System EventIntervalTim
 scoreboard players operation #Timer EventDuraTime = #System EventDuraTime
 scoreboard players set #Game EventType 0
 scoreboard players set #Game EventID 0
-scoreboard players add #Game EventCount 1
 scoreboard players set #Game OutCount 0
 
 bossbar set yws:event_name players
 bossbar set yws:interval_time players @a
-# 卸载计分板
+# utils
+function yws:util/gamerule
 function yws:util/uninstall
 # 结束游戏
 execute if score #Game EventCount = #System EventCount run function yws:game/end
+
+scoreboard players add #Game EventCount 1

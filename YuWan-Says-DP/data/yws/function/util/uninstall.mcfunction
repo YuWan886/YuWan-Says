@@ -38,3 +38,7 @@ scoreboard objectives remove Killedby_Zombie
 scoreboard objectives remove Killedby_Skeleton
 scoreboard objectives remove Killedby_Creeper
 scoreboard objectives remove Killedby_Arrow
+scoreboard objectives remove DamageDealt
+scoreboard objectives remove IsDead
+scoreboard objectives remove SwimCm
+scoreboard objectives remove IsSleep

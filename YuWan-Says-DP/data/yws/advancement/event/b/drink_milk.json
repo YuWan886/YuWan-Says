@@ -1,0 +1,14 @@
+{
+    "criteria": {
+        "drink_milk": {
+            "trigger": "using_item",
+            "conditions": {
+                "item": {
+                    "items": [
+                        "milk_bucket"
+                    ]
+                }
+            }
+        }
+    }
+}

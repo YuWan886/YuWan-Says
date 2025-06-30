@@ -9,7 +9,7 @@ scoreboard objectives add HappyGhastRideCm custom:happy_ghast_one_cm {text:"骑�
 scoreboard players set @a HappyGhastRideCm 0
 scoreboard players set #Game HappyGhastRideCm 0
 
-execute store result score #Game HappyGhastRideCm run random value 640..2560
+execute store result score #Game HappyGhastRideCm run random value 6400..25600
 
 tellraw @a ["",{text:"[Tip]",color:"yellow"},{text: "骑乘快乐恶魂移动至少",color: "gray",italic:true},{score:{name:"#Game",objective:"HappyGhastRideCm"},color:"aqua"},{text: "cm"}]
 

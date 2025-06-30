@@ -14,3 +14,8 @@ execute if score #Game EventID matches 12 run function yws:game/event/pool/a/12/
 execute if score #Game EventID matches 13 run function yws:game/event/pool/a/13/check
 execute if score #Game EventID matches 14 run function yws:game/event/pool/a/14/check
 execute if score #Game EventID matches 15 run function yws:game/event/pool/a/15/check
+execute if score #Game EventID matches 16 run function yws:game/event/pool/a/16/check
+execute if score #Game EventID matches 17 run function yws:game/event/pool/a/17/check
+execute if score #Game EventID matches 18 run function yws:game/event/pool/a/18/check
+execute if score #Game EventID matches 19 run function yws:game/event/pool/a/19/check
+execute if score #Game EventID matches 20 run function yws:game/event/pool/a/20/check

@@ -1,0 +1,38 @@
+{
+    "type": "multi_action",
+    "title": "猜猜我是谁？",
+    "pause": false,
+    "body": [
+        {
+            "type": "plain_message",
+            "contents": {
+                "text": "实力人"
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "key": "input",
+            "type": "text",
+            "label": "输入up名"
+        }
+    ],
+    "actions": [
+        {
+            "label": "确定",
+            "action": {
+                "type": "dynamic/run_command",
+                "template": "function yws:game/event/pool/b/18/dialog/check_input_1 {input:\"$(input)\"}"
+            }
+        }
+    ],
+    "exit_action": {
+        "label": {
+            "text": "我不认识"
+        },
+        "action": {
+            "type": "run_command",
+            "command": "function yws:game/event/pool/b/18/dialog/cancel"
+        }
+    }
+}

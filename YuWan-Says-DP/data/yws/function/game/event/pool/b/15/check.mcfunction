@@ -1,0 +1,1 @@
+execute as @a[tag=!finish] at @s if score @s SwimCm >= #Game SwimCm run function yws:game/event/finish_2

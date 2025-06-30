@@ -1,0 +1,4 @@
+
+gamerule naturalRegeneration true
+gamerule forgiveDeadPlayers true
+gamerule universalAnger false

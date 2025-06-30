@@ -1,1 +1,1 @@
-execute as @a[scores={Death_007=1..}] at @s run function yws:game/event/pool/a/9/dead
+execute as @a[scores={IsDead=1..}] at @s run function yws:game/event/pool/a/9/dead

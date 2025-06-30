@@ -1,0 +1,1 @@
+execute as @a[tag=!finish] at @s if score @s MinecartRideCm >= #Game MinecartRideCm run function yws:game/event/finish_2

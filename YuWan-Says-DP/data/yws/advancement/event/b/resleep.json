@@ -1,0 +1,23 @@
+{
+    "criteria": {
+        "phantom_hurt": {
+            "trigger": "entity_hurt_player",
+            "conditions": {
+                "damage": {
+                    "source_entity": {
+                        "type": "phantom"
+                    }
+                },
+                "player": [
+                    {
+                        "condition": "entity_scores",
+                        "entity": "this",
+                        "scores": {
+                            "IsSleep": 0
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

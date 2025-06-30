@@ -1,0 +1,1 @@
+execute as @a[tag=!finish,advancements={yws:event/b/resleep=true}] at @s run function yws:game/event/finish_2

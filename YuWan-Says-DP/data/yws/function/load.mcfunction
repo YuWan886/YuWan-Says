@@ -16,7 +16,6 @@ scoreboard objectives add FinishCount dummy {text: "玩家完成数"}
 
 scoreboard objectives add GameRule_Keep dummy {text:"保留物品栏"}
 
-scoreboard objectives add Death_007 deathCount
 scoreboard objectives add TimeRate dummy
 
 # 队伍
