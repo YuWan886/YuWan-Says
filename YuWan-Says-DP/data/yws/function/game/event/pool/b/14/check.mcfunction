@@ -1,1 +1,1 @@
-execute as @a[tag=!finish,advancements={yws:event/b/drink_milk=true}] at @s run function yws:game/event/finish_2
+execute as @a[tag=!finish,scores={UsedMilkBucket=1..}] at @s run function yws:game/event/finish_2

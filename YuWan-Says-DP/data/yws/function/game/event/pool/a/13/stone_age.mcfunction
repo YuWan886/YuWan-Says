@@ -3,7 +3,7 @@
 title @a title {text: "事件刷新"}
 title @a subtitle {text: "石器时代"}
 
-tellraw @a ["",{text:"[Tip]",color:"yellow"},{text: "不要使用铁/金/钻石工具",color: "gray",italic:true}]
+tellraw @a ["",{text: "\n\n[Tip]",color:"yellow"},{text: "不要使用铁/金/钻石工具",color: "gray"}]
 
 bossbar set yws:event_name name [{text: "当前事件："},{text: "石器时代"}]
 
@@ -22,19 +22,3 @@ scoreboard objectives add UsedDiamondAxe used:diamond_axe
 scoreboard objectives add UsedDiamondPickaxe used:diamond_pickaxe
 scoreboard objectives add UsedDiamondHoe used:diamond_hoe
 scoreboard objectives add UsedDiamondShovel used:diamond_shovel
-
-scoreboard players set @a UsedIronSword 0
-scoreboard players set @a UsedIronAxe 0
-scoreboard players set @a UsedIronPickaxe 0
-scoreboard players set @a UsedIronHoe 0
-scoreboard players set @a UsedIronShovel 0
-scoreboard players set @a UsedGoldenSword 0
-scoreboard players set @a UsedGoldenAxe 0
-scoreboard players set @a UsedGoldenPickaxe 0
-scoreboard players set @a UsedGoldenHoe 0
-scoreboard players set @a UsedGoldenShovel 0
-scoreboard players set @a UsedDiamondSword 0
-scoreboard players set @a UsedDiamondAxe 0
-scoreboard players set @a UsedDiamondPickaxe 0
-scoreboard players set @a UsedDiamondHoe 0
-scoreboard players set @a UsedDiamondShovel 0

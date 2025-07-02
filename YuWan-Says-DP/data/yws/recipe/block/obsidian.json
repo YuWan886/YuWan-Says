@@ -1,0 +1,10 @@
+{
+    "type": "crafting_shapeless",
+    "ingredients": [
+        "water_bucket",
+        "lava_bucket"
+    ],
+    "result": {
+        "id": "obsidian"
+    }
+}

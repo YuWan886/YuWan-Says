@@ -3,9 +3,8 @@
 title @a title {text: "事件刷新"}
 title @a subtitle {text: "静如处子"}
 
-tellraw @a ["",{text:"[Tip]",color:"yellow"},{text: "不要造成伤害",color: "gray"}]
+tellraw @a ["",{text: "\n\n[Tip]",color:"yellow"},{text: "不要造成伤害",color: "gray"}]
 
 bossbar set yws:event_name name [{text: "当前事件："},{text: "静如处子"}]
 
-scoreboard objectives add DamageDealt custom:damage_dealt {text:"造成伤害"}
-scoreboard players set @a DamageDealt 0
+scoreboard objectives add DamageDealt custom:damage_dealt {text: "造成伤害"}

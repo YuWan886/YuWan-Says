@@ -2,7 +2,7 @@
 
 tag @s add finish
 title @s title {text: "完成目标",color: "green"}
-
+title @s subtitle ["",{text: "积分"},{text: "+1",color: "green"}]
 tellraw @a [{selector: "@s"},{text: "完成了目标！"}]
 
 # 粒子和音效

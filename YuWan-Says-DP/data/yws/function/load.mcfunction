@@ -9,12 +9,11 @@ scoreboard objectives add EventDuraTime dummy {text: "事件持续时间"}
 scoreboard objectives add EventIntervalTime dummy {text: "事件间隔时间"}
 scoreboard objectives add Points dummy {text: "积分"}
 scoreboard objectives add GameTime dummy {text: "游戏时间"}
-scoreboard objectives add Timer dummy
+scoreboard objectives add Timer dummy {text: "计时器"}
 scoreboard objectives add PlayerCount dummy {text: "玩家数"}
 scoreboard objectives add OutCount dummy {text: "玩家淘汰数"}
 scoreboard objectives add FinishCount dummy {text: "玩家完成数"}
-
-scoreboard objectives add GameRule_Keep dummy {text:"保留物品栏"}
+scoreboard objectives add GameRule_Keep dummy {text: "保留物品栏"}
 
 scoreboard objectives add TimeRate dummy
 
@@ -25,5 +24,7 @@ scoreboard objectives add TeamStatus dummy {text: "队伍状态"}
 
 function yws:settings/default
 function yws:settings/team/setup
+
+function yws:recipe
 
 forceload add 0 0 2 2

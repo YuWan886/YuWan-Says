@@ -1,6 +1,8 @@
 {
     "type": "multi_action",
-    "title": "猜猜我是谁？",
+    "title": {
+        "text": "猜猜我是谁？"
+    },
     "pause": false,
     "body": [
         {
@@ -14,7 +16,9 @@
         {
             "key": "input",
             "type": "text",
-            "label": "输入up名"
+            "label": {
+                "text": "输入up名"
+            }
         }
     ],
     "actions": [
@@ -23,6 +27,11 @@
             "action": {
                 "type": "dynamic/run_command",
                 "template": "function yws:game/event/pool/b/18/dialog/check_input_1 {input:\"$(input)\"}"
+            },
+            "tooltip": {
+                "text": "2个字",
+                "color": "gray",
+                "italic": false
             }
         }
     ],
@@ -33,6 +42,11 @@
         "action": {
             "type": "run_command",
             "command": "function yws:game/event/pool/b/18/dialog/cancel"
+        },
+        "tooltip": {
+            "text": "可以上网搜一下;)",
+            "color": "gray",
+            "italic": false
         }
     }
 }

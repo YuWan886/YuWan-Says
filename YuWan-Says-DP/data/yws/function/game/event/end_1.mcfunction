@@ -1,5 +1,6 @@
 # 事件结束 1
 
+title @a[tag=!out] title ["",{text: "积分"},{text: "+1",color:"green"}]
 scoreboard players add @a[tag=!out] Points 1
 tag @a[tag=out] remove out
 
@@ -14,6 +15,8 @@ bossbar set yws:interval_time players @a
 # utils
 function yws:util/gamerule
 function yws:util/uninstall
+function yws:util/attribute
+function yws:util/kill_mob
 # 结束游戏
 execute if score #Game EventCount = #System EventCount run function yws:game/end
 

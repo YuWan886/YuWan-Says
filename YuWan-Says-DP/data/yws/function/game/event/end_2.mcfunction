@@ -14,6 +14,8 @@ bossbar set yws:interval_time players @a
 # utils
 function yws:util/gamerule
 function yws:util/uninstall
+function yws:util/attribute
+function yws:util/kill_mob
 # 结束游戏
 execute if score #Game EventCount = #System EventCount run function yws:game/end
 

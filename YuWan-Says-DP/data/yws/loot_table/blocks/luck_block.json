@@ -1,0 +1,32 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "pig_spawn_egg",
+                    "functions": [
+                        {
+                            "function": "set_components",
+                            "components": {
+                                "custom_name": {
+                                    "text": "幸运方块",
+                                    "color": "gold",
+                                    "italic": false
+                                },
+                                "entity_data": {
+                                    "id": "marker",
+                                    "Tags": [
+                                        "lucky_block"
+                                    ]
+                                },
+                                "item_model": "sponge"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

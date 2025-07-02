@@ -1,8 +1,10 @@
 
 tag @s add out
 title @s title {text: "触发事件",color: "red"}
-
+title @s subtitle ["",{text: "积分"},{text: "-1",color: "red"}]
 tellraw @a [{selector: "@s"},{text: "触发了事件！"}]
+
+scoreboard players remove @s Points 1
 
 # 粒子和音效
 playsound minecraft:entity.villager.no record @s ~ ~ ~ 1 1.0

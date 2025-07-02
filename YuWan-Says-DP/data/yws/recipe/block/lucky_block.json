@@ -1,0 +1,30 @@
+{
+    "type": "crafting_shaped",
+    "pattern": [
+        "aaa",
+        "aba",
+        "aaa"
+    ],
+    "key": {
+        "a": "gold_ingot",
+        "b": "furnace"
+    },
+    "result": {
+        "id": "pig_spawn_egg",
+        "components": {
+            "custom_name": {
+                "text": "幸运方块",
+                "color": "gold",
+                "italic": false
+            },
+            "entity_data": {
+                "id": "marker",
+                "Tags": [
+                    "lucky_block"
+                ]
+            },
+            "item_model": "sponge"
+        },
+        "count": 1
+    }
+}

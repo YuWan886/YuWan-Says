@@ -26,8 +26,9 @@ scoreboard objectives remove MinedGoldAll
 scoreboard objectives remove PlacedGoldOre
 scoreboard objectives remove PlacedDeepGoldOre
 scoreboard objectives remove MinedDiamondOre
+scoreboard objectives remove MinedDeepDiamondOre
 scoreboard objectives remove BreedingTimes
-scoreboard objectives remove EatenRottenFleshTimes
+scoreboard objectives remove UsedRottenFleshTimes
 scoreboard objectives remove PlantWheat
 scoreboard objectives remove FishingTimes
 scoreboard objectives remove PigRideCm
@@ -37,8 +38,8 @@ scoreboard objectives remove Killedby
 scoreboard objectives remove Killedby_Zombie
 scoreboard objectives remove Killedby_Skeleton
 scoreboard objectives remove Killedby_Creeper
-scoreboard objectives remove Killedby_Arrow
 scoreboard objectives remove DamageDealt
 scoreboard objectives remove IsDead
 scoreboard objectives remove SwimCm
 scoreboard objectives remove IsSleep
+scoreboard objectives remove UsedMilkBucket

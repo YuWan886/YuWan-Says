@@ -1,0 +1,4 @@
+
+setblock ~ ~ ~ sponge
+
+kill @s

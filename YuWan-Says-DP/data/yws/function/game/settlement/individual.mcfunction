@@ -106,8 +106,8 @@ execute if score #Game PlayerCount matches 19 run tellraw @a [{text: "恭喜 "},
 execute if score #Game PlayerCount matches 20.. run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=20th]"}," - ",{score:{name:"@a[tag=20th]",objective:"Points"}},{text: " 获得"},{text: "第20名"}]
 
 title @a times 10t 3s 8t
-title @a title [{text:"游戏结束！"}]
-title @a subtitle [{text:"获胜者：",color:"gold"},{selector:"@a[tag=1st]",color:"#ffcc00"}]
+title @a title [{text: "游戏结束！"}]
+title @a subtitle [{text: "获胜者：",color:"gold"},{selector:"@a[tag=1st]",color:"#ffcc00"}]
 
 tag @a[tag=1st] remove 1st
 tag @a[tag=2nd] remove 2nd

@@ -1,1 +1,1 @@
-execute as @a[tag=!finish] at @s if score @s EatenRottenFleshTimes = #Game EatenRottenFleshTimes run function yws:game/event/finish_2
+execute as @a[tag=!finish] at @s if score @s UsedRottenFleshTimes = #Game UsedRottenFleshTimes run function yws:game/event/finish_2
