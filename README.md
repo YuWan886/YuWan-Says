@@ -1,45 +1,30 @@
+<div align="center">
+  <img style="width: 256px; height: 64px;" src="YuWan-Says-RP\assets\minecraft\textures\gui\title\minceraft.png" alt="logo" />
 
-## 计分板
+  <h1>YuWan Says - 趣味生存数据包</h1>
+  <p><em>你说我做+不要做大杂烩趣味数据包</em></p>
+</div>
 
-### #System
+## 🎮 玩法介绍
 
- - GameStatus
- - EventCount
- - EventDuraTime
- - EventIntervalTime
- - GameTime
- - TeamMode
- - TeamCount
- - PlayerCount
+这是一个支持20+人游玩的趣味生存数据包，核心玩法如下：
+- 每4分钟会随机抽取一个事件
+- 玩家需要完成这些随机事件才能获得积分
+- 10个事件结束后，系统会对玩家积分进行排名
+- 积分最高的玩家将获得胜利
 
-### #Timer
+## 📜 事件类型
 
- - EventDuraTime
- - EventIntervalTime
- - GameTime
- - Timer
+事件分为两大类：
+- **A类**：禁止类事件 - 玩家需要避免做某些行为
+- **B类**：挑战类事件 - 玩家需要完成特定挑战
 
-
-### #Game
-
- - EventType
- - EventID
- - EventCount
- - PlayerCount
- - FinishCount
-
-### #Team.Red/Yellow/Blue/Green
-
- - TeamStatus
- - Points
-
-
-## 事件
+### 事件列表
 
 类型 | 编号 | 名称 | 描述
 --- | --- | --- | ---
 A | 1 | 别踩草方块 | 不要踩在草方块上
-A | 2 | 旱鸭子 |不要止游泳
+A | 2 | 旱鸭子 | 不要游泳
 A | 3 | 断腿 | 不要跳跃
 A | 4 | 禁止潜行 | 不要潜行(蹲下)
 A | 5 | 动起来！ | 必须保持移动
@@ -57,7 +42,6 @@ A | 16 | UHC? | 活下去
 A | 17 | 无副手 | 副手不要占用
 A | 18 | 无主手 | 主手不要占用
 A | 19 | 假如我是一只吸血鬼 | 不要暴露在太阳底下
-
 -----|-----|-----|-----
 B | 1 | 制作木镐 | 制作一个木镐
 B | 2 | 时间要开始加速了 | 时间要开始加速了
@@ -78,11 +62,28 @@ B | 16 | 起来重睡 | 睡觉时被幻翼攻击
 B | 17 | 冲刺冲刺♿ | 乘坐矿车移动?CM
 B | 18 | 猜猜我是谁 | 猜猜我是谁
 
+## ⚙️ 安装与使用
 
-添加事件需要改的函数文件
+### 安装方式
+1. **数据包+资源包**：
+   - 将数据包文件夹放入世界目录的`datapacks`文件夹
+   - 将资源包放入`resourcepacks`文件夹
 
- - YuWan-Says-DP\data\yws\function\game\event\pool\
- - YuWan-Says-DP\data\yws\function\game\event\roll\
- - YuWan-Says-DP\data\yws\function\loop\event\check.mcfunction
- - YuWan-Says-DP\data\yws\predicate\event\
- - YuWan-Says-DP\data\yws\function\util\uninstall.mcfunction
+2. **Mod方式**：
+   - 安装对应版本的Mod加载器（推荐Fabric）
+   - 将Mod文件放入`mods`文件夹
+
+### 使用指令
+- 启动游戏：`/function yws:game/start`
+- 提前结束：`/function yws:game/end`
+
+## 🏆 特色
+
+- 支持多人同时游玩
+- 随机事件系统增加游戏趣味性
+- 积分排名机制激发竞争乐趣
+- 丰富的事件类型(共37种)
+
+## 📚 开发文档
+
+- [API文档](doc/api.md)
