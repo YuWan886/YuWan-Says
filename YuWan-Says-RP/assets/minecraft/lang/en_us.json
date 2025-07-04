@@ -108,7 +108,7 @@
     "load.17": "队伍状态",
     "game.event.end_1.1": "+1",
     "game.event.out_1.3": "触发了事件！",
-    "game.event.pool.a.1.not_on_grass_block.3": "\n\n[Tip]",
+    "game.event.pool.a.1.not_on_grass_block.3": "\\n\\n[Tip]",
     "game.event.pool.a.14.acrophobia.1": "恐高",
     "game.event.pool.a.14.acrophobia.2": "下落高度不要超过3格",
     "game.event.pool.a.14.acrophobia.3": "下落高度",
@@ -193,5 +193,15 @@
     "settings.gamerule.1": "======§l§a游戏规则§r======",
     "settings.gamerule.2": "[1] 保留物品栏",
     "settings.gamerule.3": "关闭",
-    "settings.gamerule.4": "开启"
+    "settings.gamerule.4": "开启",
+    "game.event.pool.b.19.caveworld.1": "洞穴世界",
+    "game.event.pool.b.19.caveworld.2": "下到-64层 ",
+    "game.event.pool.b.20.monster_hunter.1": "怪物猎人",
+    "game.event.pool.b.20.monster_hunter.2": "击杀",
+    "game.event.pool.b.20.monster_hunter.3": "只僵尸",
+    "game.event.pool.b.20.monster_hunter.4": "只骷髅",
+    "game.event.pool.b.20.monster_hunter.5": "只苦力怕",
+    "game.event.pool.b.20.monster_hunter.6": "只溺尸",
+    "game.event.pool.b.20.monster_hunter.7": "只蜘蛛",
+    "game.event.pool.b.20.monster_hunter.8": "只洞穴蜘蛛"
 }

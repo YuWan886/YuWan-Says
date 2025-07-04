@@ -1,0 +1,68 @@
+{
+    "type": "multi_action",
+    "title": {
+        "text": "游戏设置"
+    },
+    "columns": 1,
+    "inputs": [
+        {
+            "key": "gamerule_keepinv",
+            "type": "boolean",
+            "label": {
+                "text": "死亡不掉落"
+            },
+            "initial": true
+        },
+        {
+            "key": "event_dura_time",
+            "type": "number_range",
+            "label": {
+                "text": "事件持续时间(秒)"
+            },
+            "start": 120,
+            "end": 600,
+            "step": 30,
+            "initial": 240
+        },
+        {
+            "key": "event_interval_time",
+            "type": "number_range",
+            "label": {
+                "text": "事件间隔时间(秒)"
+            },
+            "start": 1,
+            "end": 30,
+            "step": 1,
+            "initial": 10
+        }
+    ],
+    "actions": [
+        {
+            "label": {
+                "text": "队伍模式"
+            },
+            "action": {
+                "type": "run_command",
+                "command": "dialog show @s yws:settings/teammode"
+            }
+        },
+        {
+            "label": {
+                "text": "应用"
+            },
+            "action": {
+                "type": "dynamic/run_command",
+                "template": "function yws:settings/main {gamerule_keepinv:$(gamerule_keepinv),event_dura_time:$(event_dura_time),event_interval_time:$(event_interval_time)}"
+            }
+        }
+    ],
+    "exit_action": {
+        "label": {
+            "text": "返回"
+        },
+        "action": {
+            "type": "run_command",
+            "command": "dialog show @s yws:control"
+        }
+    }
+}

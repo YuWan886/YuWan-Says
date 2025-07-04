@@ -1,0 +1,1 @@
+execute as @a[tag=!finish,y=-64] at @s run function yws:game/event/finish_2

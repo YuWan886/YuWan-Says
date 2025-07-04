@@ -1,5 +1,5 @@
 # B类
-execute store result score #Game EventID run random value 1..17
+execute store result score #Game EventID run random value 1..21
 
 execute if score #Game EventID matches 1 run function yws:game/event/pool/b/1/craft_wooden_pickaxe
 execute if score #Game EventID matches 2 run function yws:game/event/pool/roll/main
@@ -18,3 +18,7 @@ execute if score #Game EventID matches 14 run function yws:game/event/pool/b/14/
 execute if score #Game EventID matches 15 run function yws:game/event/pool/b/15/sailor2
 execute if score #Game EventID matches 16 run function yws:game/event/pool/b/16/resleep
 execute if score #Game EventID matches 17 run function yws:game/event/pool/b/17/minecart_rush
+execute if score #Game EventID matches 18 run function yws:game/event/pool/b/18/guess_who_i_am
+execute if score #Game EventID matches 19 run function yws:game/event/pool/b/19/caveworld
+execute if score #Game EventID matches 20 run function yws:game/event/pool/b/20/monster_hunter
+execute if score #Game EventID matches 21 run function yws:game/event/pool/b/21/shoot_bees

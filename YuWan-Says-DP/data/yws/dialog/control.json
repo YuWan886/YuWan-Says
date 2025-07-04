@@ -1,0 +1,69 @@
+{
+    "type": "multi_action",
+    "title": {
+        "text": "YuWan Says 控制面板"
+    },
+    "columns": 1,
+    "body": [
+        {
+            "type": "plain_message",
+            "contents": {
+                "text": "\n\n\n\n\ue001\n"
+            },
+            "width": 400
+        },
+        {
+            "type": "plain_message",
+            "contents": "\n\n\n\n"
+        }
+    ],
+    "actions": [
+        {
+            "label": {
+                "text": "开始游戏",
+                "color": "green"
+            },
+            "action": {
+                "type": "run_command",
+                "command": "function yws:game/start"
+            }
+        },
+        {
+            "label": {
+                "text": "游戏设置"
+            },
+            "action": {
+                "type": "run_command",
+                "command": "dialog show @s yws:settings/main"
+            }
+        },
+        {
+            "label": {
+                "text": "终止游戏",
+                "color": "red"
+            },
+            "action": {
+                "type": "run_command",
+                "command": "function yws:game/end"
+            }
+        }
+    ],
+    "external_title": [
+        {
+            "text": "控",
+            "color": "#ffa600"
+        },
+        {
+            "text": "制",
+            "color": "#ffcc00"
+        },
+        {
+            "text": "面",
+            "color": "#ffff00"
+        },
+        {
+            "text": "板",
+            "color": "#fafa82"
+        }
+    ]
+}

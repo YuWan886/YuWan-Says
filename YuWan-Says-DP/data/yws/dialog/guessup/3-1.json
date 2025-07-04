@@ -1,0 +1,52 @@
+{
+    "type": "multi_action",
+    "title": {
+        "text": "猜猜我是谁？"
+    },
+    "pause": false,
+    "body": [
+        {
+            "type": "plain_message",
+            "contents": {
+                "text": "红皮耗子"
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "key": "input",
+            "type": "text",
+            "label": {
+                "text": "输入up名"
+            }
+        }
+    ],
+    "actions": [
+        {
+            "label": "确定",
+            "action": {
+                "type": "dynamic/run_command",
+                "template": "function yws:game/event/pool/b/18/dialog/check_input_1 {input:\"$(input)\"}"
+            },
+            "tooltip": {
+                "text": "4个字",
+                "color": "gray",
+                "italic": false
+            }
+        }
+    ],
+    "exit_action": {
+        "label": {
+            "text": "我不认识"
+        },
+        "action": {
+            "type": "run_command",
+            "command": "function yws:game/event/pool/b/18/dialog/cancel"
+        },
+        "tooltip": {
+            "text": "可以上网搜一下;)",
+            "color": "gray",
+            "italic": false
+        }
+    }
+}

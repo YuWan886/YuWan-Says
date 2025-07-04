@@ -1,0 +1,11 @@
+{
+    "type": "multi_action",
+    "title": {
+        "text": "队伍模式"
+    },
+    "actions": [
+        {
+            "label": "(敬请期待)"
+        }
+    ]
+}

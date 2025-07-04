@@ -1,0 +1,32 @@
+{
+    "criteria": {
+        "shoot_bees":{
+            "trigger": "player_killed_entity",
+            "conditions": {
+                "entity": {
+                    "type": "bee"
+                },
+                "killing_blow": {
+                    "direct_entity": {
+                        "type": "arrow"
+                    }
+                },
+                "player": [
+                    {
+                        "condition": "entity_scores",
+                        "entity": "this",
+                        "scores": {
+                            "ShootBeesTimes": {
+                                "min": 0,
+                                "max": 2147483647
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "rewards": {
+        "function": "yws:game/event/pool/b/21/get_score"
+    }
+}

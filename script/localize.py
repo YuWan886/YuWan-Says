@@ -33,6 +33,7 @@ def save_translations(translations, output_path, zh_cn_path):
         
         merged_translations = {**existing_translations, **translations}
         
+        # 保存时确保 Unicode 字符不被转义
         with open(output_path, "w", encoding="utf-8") as out_file:
             json.dump(merged_translations, out_file, ensure_ascii=False, indent=4)
 
@@ -87,17 +88,16 @@ async def traverse_and_replace_texts(
 
 
 def replace_text(data, translations, number, key_prefix):
-    """递归替换JSON中的text字段为translate，处理转义符号"""
+    """递归替换JSON中的text字段为translate，保留Unicode字符"""
     if isinstance(data, dict):
         if "text" in data and isinstance(data["text"], str):
-            # 处理转义符号，保留原始格式
             text_value = data["text"]
             translation_key = f"{key_prefix}.{number[0]}"
             existing_key = next((k for k, v in translations.items() if v == text_value), None)
             if existing_key:
                 data["translate"] = existing_key
             else:
-                translations[translation_key] = text_value  # 保留原始转义符号
+                translations[translation_key] = text_value  
                 data["translate"] = translation_key
                 number[0] += 1
             if "type" in data and data["type"] == "text":
@@ -112,10 +112,10 @@ def replace_text(data, translations, number, key_prefix):
 
 
 def process_json_like_string(json_str, namespace_prefix, namespace_counts, translations):
-    """处理单个JSON-like字符串，处理转义符号"""
+    """处理单个JSON-like字符串，保留Unicode字符"""
     try:
-        # 尝试解析为JSON
-        json_data = json.loads(json_str)
+        # 尝试解析为JSON，禁用ASCII转义
+        json_data = json.loads(json_str, strict=False)
         
         # 如果是数组，处理每个元素
         if isinstance(json_data, list):
@@ -132,7 +132,7 @@ def process_json_like_string(json_str, namespace_prefix, namespace_counts, trans
                     existing_key = next((k for k, v in translations.items() if v == text_value), None)
                     
                     if not existing_key:
-                        translations[translation_key] = text_value  # 保留原始转义符号
+                        translations[translation_key] = text_value  
                         namespace_counts[namespace_prefix] += 1
                         new_key = translation_key
                     else:
@@ -160,7 +160,7 @@ def process_json_like_string(json_str, namespace_prefix, namespace_counts, trans
             existing_key = next((k for k, v in translations.items() if v == text_value), None)
             
             if not existing_key:
-                translations[translation_key] = text_value  # 保留原始转义符号
+                translations[translation_key] = text_value  
                 namespace_counts[namespace_prefix] += 1
                 new_key = translation_key
             else:
@@ -174,7 +174,7 @@ def process_json_like_string(json_str, namespace_prefix, namespace_counts, trans
         return json_str
     except json.JSONDecodeError:
         # 如果不是有效的JSON，尝试直接匹配text字段
-        text_match = re.search(r'text\s*:\s*"([^"]*)"', json_str)
+        text_match = re.search(r'text\s*:\s*"([^"]*)"', json_str, re.UNICODE)
         if text_match:
             text_value = text_match.group(1)
             if "$" in text_value:
@@ -184,7 +184,7 @@ def process_json_like_string(json_str, namespace_prefix, namespace_counts, trans
             existing_key = next((k for k, v in translations.items() if v == text_value), None)
             
             if not existing_key:
-                translations[translation_key] = text_value  # 保留原始转义符号
+                translations[translation_key] = text_value
                 namespace_counts[namespace_prefix] += 1
                 new_key = translation_key
             else:
@@ -224,15 +224,11 @@ async def extract_translations(directory, zh_cn_output_dir=None, output_file_nam
                         content = f.read()
 
                     modified_content = content
-                    # 处理JSON-like结构
                     json_matches = json_pattern.findall(content)
                     for json_str in json_matches:
                         try:
-                            # 跳过已经包含translate的结构
                             if 'translate:' in json_str:
-                                continue
-                                
-                            # 处理JSON-like字符串
+                                continue                          
                             new_json_str = process_json_like_string(
                                 json_str, 
                                 namespace_prefix, 
@@ -281,7 +277,7 @@ async def apply_translations(directory, translations):
                 except Exception as e:
                     print(f"错误: 写回JSON文件 {file_path} 时出错: {e}")
 
-    translate_pattern = re.compile(r'(translate:\s*"([^"]*)")')
+    translate_pattern = re.compile(r'(translate:\s*"([^"]*)")', re.UNICODE)
     for root, dirs, files in os.walk(directory):
         for file in files:
             if file.endswith(".mcfunction"):
@@ -291,11 +287,10 @@ async def apply_translations(directory, translations):
                         content = f.read()
 
                     modified = False
-                    # 直接替换translate字段为text字段
                     for match in translate_pattern.finditer(content):
                         translate_key = match.group(2)
                         if translate_key in translations:
-                            new_text = translations[translate_key]  # 保留原始转义符号
+                            new_text = translations[translate_key]  
                             content = content.replace(
                                 match.group(0), 
                                 f'text: "{new_text}"'
@@ -304,7 +299,7 @@ async def apply_translations(directory, translations):
                     
                     if modified:
                         with open(file_path, "w", encoding="utf-8") as f:
-                            f.write(content)
+                            f.write (content)
                         print(f"成功写回mcfunction文件: {file_path}")
                 except Exception as e:
                     print(f"错误: 写回mcfunction文件 {file_path} 时出错: {e}")
@@ -316,7 +311,7 @@ def update_translations(data, translations):
         updated_data = {}
         for key, value in data.items():
             if key == "translate" and isinstance(value, str) and value in translations:
-                updated_data["text"] = translations[value]  # 保留原始转义符号
+                updated_data["text"] = translations[value] 
             else:
                 updated_data[key] = update_translations(value, translations)
         return updated_data
