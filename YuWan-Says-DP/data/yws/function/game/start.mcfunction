@@ -24,11 +24,12 @@ execute at @a run playsound minecraft:entity.player.levelup record @s ~ ~ ~
 
 scoreboard players operation #Timer EventIntervalTime = #System EventIntervalTime
 scoreboard players operation #Timer EventDuraTime = #System EventDuraTime
+scoreboard players set #Timer ReadyTime 0
 scoreboard objectives setdisplay sidebar Points
 
 # Bossbar名称
 bossbar add yws:interval_time [{text: "下一事件倒计时："}]
 execute store result bossbar yws:interval_time max run scoreboard players get #System EventIntervalTime
-bossbar add yws:event_name [{text: "当前事件："}]
+bossbar add yws:event_name ["[",{score:{name:"#Game",objective:"EventCount"},extra:["/",{score:{name:"#System",objective:"EventCount"}}]},"] ",{text: "当前事件："}]
 execute store result bossbar yws:event_name max run scoreboard players get #System EventDuraTime
 bossbar set yws:interval_time players @a

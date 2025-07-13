@@ -1,1 +1,1 @@
-execute as @a[tag=!out,predicate=yws:event/a/vampire] at @s run function yws:game/event/out_1
+execute if score #Timer ReadyTime matches 0 as @a[tag=!out,predicate=yws:event/a/vampire] at @s run function yws:game/event/out_1

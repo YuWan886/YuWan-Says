@@ -1,25 +1,25 @@
 # 个人模式
 
-summon marker 0 99 0 {Tags:["settle","1st"]}
-summon marker 0 99 0 {Tags:["settle","2nd"]}
-summon marker 0 99 0 {Tags:["settle","3rd"]}
-summon marker 0 99 0 {Tags:["settle","4th"]}
-summon marker 0 99 0 {Tags:["settle","5th"]}
-summon marker 0 99 0 {Tags:["settle","6th"]}
-summon marker 0 99 0 {Tags:["settle","7th"]}
-summon marker 0 99 0 {Tags:["settle","8th"]}
-summon marker 0 99 0 {Tags:["settle","9th"]}
-summon marker 0 99 0 {Tags:["settle","10th"]}
-summon marker 1 99 0 {Tags:["settle","11th"]}
-summon marker 1 99 0 {Tags:["settle","12th"]}
-summon marker 1 99 0 {Tags:["settle","13th"]}
-summon marker 1 99 0 {Tags:["settle","14th"]}
-summon marker 1 99 0 {Tags:["settle","15th"]}
-summon marker 1 99 0 {Tags:["settle","16th"]}
-summon marker 1 99 0 {Tags:["settle","17th"]}
-summon marker 1 99 0 {Tags:["settle","18th"]}
-summon marker 1 99 0 {Tags:["settle","19th"]}
-summon marker 1 99 0 {Tags:["settle","20th"]}
+execute at @r run summon marker ~ ~ ~ {Tags:["settle","1st"]}
+execute at @r run summon marker ~ ~ ~ {Tags:["settle","2nd"]}
+execute at @r run summon marker ~ ~ ~ {Tags:["settle","3rd"]}
+execute at @r run summon marker ~ ~ ~ {Tags:["settle","4th"]}
+execute at @r run summon marker ~ ~ ~ {Tags:["settle","5th"]}
+execute at @r run summon marker ~ ~ ~ {Tags:["settle","6th"]}
+execute at @r run summon marker ~ ~ ~ {Tags:["settle","7th"]}
+execute at @r run summon marker ~ ~ ~ {Tags:["settle","8th"]}
+execute at @r run summon marker ~ ~ ~ {Tags:["settle","9th"]}
+execute at @r run summon marker ~ ~ ~ {Tags:["settle","10th"]}
+execute at @r run summon marker ~ ~ ~ {Tags:["settle","11th"]}
+execute at @r run summon marker ~ ~ ~ {Tags:["settle","12th"]}
+execute at @r run summon marker ~ ~ ~ {Tags:["settle","13th"]}
+execute at @r run summon marker ~ ~ ~ {Tags:["settle","14th"]}
+execute at @r run summon marker ~ ~ ~ {Tags:["settle","15th"]}
+execute at @r run summon marker ~ ~ ~ {Tags:["settle","16th"]}
+execute at @r run summon marker ~ ~ ~ {Tags:["settle","17th"]}
+execute at @r run summon marker ~ ~ ~ {Tags:["settle","18th"]}
+execute at @r run summon marker ~ ~ ~ {Tags:["settle","19th"]}
+execute at @r run summon marker ~ ~ ~ {Tags:["settle","20th"]}
 
 # 1
 scoreboard players operation @e[type=marker,tag=1st] Points > @a Points
@@ -85,24 +85,24 @@ execute as @a if score @s Points = @e[type=marker,tag=20th,limit=1] Points run t
 kill @e[type=marker,tag=settle]
 
 tellraw @a [{text: "恭喜 "},{selector: "@a[tag=1st]"}," - ",{score:{name:"@a[tag=1st]",objective:"Points"}},{text: " 获得"},{text: "第1名"}]
-execute if score #Game PlayerCount matches 2 run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=2nd]"}," - ",{score:{name:"@a[tag=2nd]",objective:"Points"}},{text: " 获得"},{text: "第2名"}]
-execute if score #Game PlayerCount matches 3 run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=3re]"}," - ",{score:{name:"@a[tag=3rd]",objective:"Points"}},{text: " 获得"},{text: "第3名"}]
-execute if score #Game PlayerCount matches 4 run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=4th]"}," - ",{score:{name:"@a[tag=4th]",objective:"Points"}},{text: " 获得"},{text: "第4名"}]
-execute if score #Game PlayerCount matches 5 run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=5th]"}," - ",{score:{name:"@a[tag=5th]",objective:"Points"}},{text: " 获得"},{text: "第5名"}]
-execute if score #Game PlayerCount matches 6 run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=6th]"}," - ",{score:{name:"@a[tag=6th]",objective:"Points"}},{text: " 获得"},{text: "第6名"}]
-execute if score #Game PlayerCount matches 7 run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=7th]"}," - ",{score:{name:"@a[tag=7th]",objective:"Points"}},{text: " 获得"},{text: "第7名"}]
-execute if score #Game PlayerCount matches 8 run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=8th]"}," - ",{score:{name:"@a[tag=8th]",objective:"Points"}},{text: " 获得"},{text: "第8名"}]
-execute if score #Game PlayerCount matches 9 run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=9th]"}," - ",{score:{name:"@a[tag=9th]",objective:"Points"}},{text: " 获得"},{text: "第9名"}]
-execute if score #Game PlayerCount matches 10 run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=10th]"}," - ",{score:{name:"@a[tag=10th]",objective:"Points"}},{text: " 获得"},{text: "第10名"}]
-execute if score #Game PlayerCount matches 11 run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=11th]"}," - ",{score:{name:"@a[tag=11th]",objective:"Points"}},{text: " 获得"},{text: "第11名"}]
-execute if score #Game PlayerCount matches 12 run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=12th]"}," - ",{score:{name:"@a[tag=12th]",objective:"Points"}},{text: " 获得"},{text: "第12名"}]
-execute if score #Game PlayerCount matches 13 run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=13th]"}," - ",{score:{name:"@a[tag=13th]",objective:"Points"}},{text: " 获得"},{text: "第13名"}]
-execute if score #Game PlayerCount matches 14 run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=14th]"}," - ",{score:{name:"@a[tag=14th]",objective:"Points"}},{text: " 获得"},{text: "第14名"}]
-execute if score #Game PlayerCount matches 15 run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=15th]"}," - ",{score:{name:"@a[tag=15th]",objective:"Points"}},{text: " 获得"},{text: "第15名"}]
-execute if score #Game PlayerCount matches 16 run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=16th]"}," - ",{score:{name:"@a[tag=16th]",objective:"Points"}},{text: " 获得"},{text: "第16名"}]
-execute if score #Game PlayerCount matches 17 run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=17th]"}," - ",{score:{name:"@a[tag=17th]",objective:"Points"}},{text: " 获得"},{text: "第17名"}]
-execute if score #Game PlayerCount matches 18 run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=18th]"}," - ",{score:{name:"@a[tag=18th]",objective:"Points"}},{text: " 获得"},{text: "第18名"}]
-execute if score #Game PlayerCount matches 19 run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=19th]"}," - ",{score:{name:"@a[tag=19th]",objective:"Points"}},{text: " 获得"},{text: "第19名"}]
+execute if score #Game PlayerCount matches 2.. run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=2nd]"}," - ",{score:{name:"@a[tag=2nd]",objective:"Points"}},{text: " 获得"},{text: "第2名"}]
+execute if score #Game PlayerCount matches 3.. run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=3re]"}," - ",{score:{name:"@a[tag=3rd]",objective:"Points"}},{text: " 获得"},{text: "第3名"}]
+execute if score #Game PlayerCount matches 4.. run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=4th]"}," - ",{score:{name:"@a[tag=4th]",objective:"Points"}},{text: " 获得"},{text: "第4名"}]
+execute if score #Game PlayerCount matches 5.. run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=5th]"}," - ",{score:{name:"@a[tag=5th]",objective:"Points"}},{text: " 获得"},{text: "第5名"}]
+execute if score #Game PlayerCount matches 6.. run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=6th]"}," - ",{score:{name:"@a[tag=6th]",objective:"Points"}},{text: " 获得"},{text: "第6名"}]
+execute if score #Game PlayerCount matches 7.. run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=7th]"}," - ",{score:{name:"@a[tag=7th]",objective:"Points"}},{text: " 获得"},{text: "第7名"}]
+execute if score #Game PlayerCount matches 8.. run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=8th]"}," - ",{score:{name:"@a[tag=8th]",objective:"Points"}},{text: " 获得"},{text: "第8名"}]
+execute if score #Game PlayerCount matches 9.. run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=9th]"}," - ",{score:{name:"@a[tag=9th]",objective:"Points"}},{text: " 获得"},{text: "第9名"}]
+execute if score #Game PlayerCount matches 10.. run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=10th]"}," - ",{score:{name:"@a[tag=10th]",objective:"Points"}},{text: " 获得"},{text: "第10名"}]
+execute if score #Game PlayerCount matches 11.. run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=11th]"}," - ",{score:{name:"@a[tag=11th]",objective:"Points"}},{text: " 获得"},{text: "第11名"}]
+execute if score #Game PlayerCount matches 12.. run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=12th]"}," - ",{score:{name:"@a[tag=12th]",objective:"Points"}},{text: " 获得"},{text: "第12名"}]
+execute if score #Game PlayerCount matches 13.. run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=13th]"}," - ",{score:{name:"@a[tag=13th]",objective:"Points"}},{text: " 获得"},{text: "第13名"}]
+execute if score #Game PlayerCount matches 14.. run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=14th]"}," - ",{score:{name:"@a[tag=14th]",objective:"Points"}},{text: " 获得"},{text: "第14名"}]
+execute if score #Game PlayerCount matches 15.. run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=15th]"}," - ",{score:{name:"@a[tag=15th]",objective:"Points"}},{text: " 获得"},{text: "第15名"}]
+execute if score #Game PlayerCount matches 16.. run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=16th]"}," - ",{score:{name:"@a[tag=16th]",objective:"Points"}},{text: " 获得"},{text: "第16名"}]
+execute if score #Game PlayerCount matches 17.. run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=17th]"}," - ",{score:{name:"@a[tag=17th]",objective:"Points"}},{text: " 获得"},{text: "第17名"}]
+execute if score #Game PlayerCount matches 18.. run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=18th]"}," - ",{score:{name:"@a[tag=18th]",objective:"Points"}},{text: " 获得"},{text: "第18名"}]
+execute if score #Game PlayerCount matches 19.. run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=19th]"}," - ",{score:{name:"@a[tag=19th]",objective:"Points"}},{text: " 获得"},{text: "第19名"}]
 execute if score #Game PlayerCount matches 20.. run tellraw @a [{text: "恭喜 "},{selector: "@a[tag=20th]"}," - ",{score:{name:"@a[tag=20th]",objective:"Points"}},{text: " 获得"},{text: "第20名"}]
 
 title @a times 10t 3s 8t

@@ -1,0 +1,71 @@
+{
+    "condition": "inverted",
+    "term": {
+        "condition": "any_of",
+        "terms": [
+            {
+                "condition": "entity_properties",
+                "entity": "this",
+                "predicate": {
+                    "nbt": "{Inventory:[{Slot:0b}]}"
+                }
+            },
+            {
+                "condition": "entity_properties",
+                "entity": "this",
+                "predicate": {
+                    "nbt": "{Inventory:[{Slot:1b}]}"
+                }
+            },
+            {
+                "condition": "entity_properties",
+                "entity": "this",
+                "predicate": {
+                    "nbt": "{Inventory:[{Slot:2b}]}"
+                }
+            },
+            {
+                "condition": "entity_properties",
+                "entity": "this",
+                "predicate": {
+                    "nbt": "{Inventory:[{Slot:3b}]}"
+                }
+            },
+            {
+                "condition": "entity_properties",
+                "entity": "this",
+                "predicate": {
+                    "nbt": "{Inventory:[{Slot:4b}]}"
+                }
+            },
+            {
+                "condition": "entity_properties",
+                "entity": "this",
+                "predicate": {
+                    "nbt": "{Inventory:[{Slot:5b}]}"
+                }
+            },
+            {
+                "condition": "entity_properties",
+                "entity": "this",
+                "predicate": {
+                    "nbt": "{Inventory:[{Slot:6b}]}"
+                }
+            },
+            {
+                "condition": "entity_properties",
+                "entity": "this",
+                "predicate": {
+                    "nbt": "{Inventory:[{Slot:7b}]}"
+                }
+            },
+            {
+                "condition": "entity_properties",
+                "entity": "this",
+                "predicate": {
+                    "nbt": "{Inventory:[{Slot:8b}]}"
+                }
+            }
+        ]
+    }
+}

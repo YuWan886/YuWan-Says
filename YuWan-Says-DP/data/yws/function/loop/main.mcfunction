@@ -5,6 +5,8 @@ scoreboard players add #Timer Timer 1
 execute if score #Timer EventIntervalTime matches 1.. if score #Timer Timer matches 20 run scoreboard players remove #Timer EventIntervalTime 1
 # 事件持续时间 -1s
 execute if score #Timer EventIntervalTime matches 0 if score #Timer EventDuraTime matches 1.. if score #Timer Timer matches 20 run scoreboard players remove #Timer EventDuraTime 1
+# 准备时间 -1s
+execute if score #Timer ReadyTime matches 1.. if score #Timer Timer matches 20 run scoreboard players remove #Timer ReadyTime 1
 
 execute if score #Timer Timer matches 20 run scoreboard players set #Timer Timer 0
 

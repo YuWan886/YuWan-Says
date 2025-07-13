@@ -3,7 +3,7 @@
 title @a title {text: "事件刷新"}
 title @a subtitle {text: "猜猜我是谁？"}
 
-bossbar set yws:event_name name [{text: "当前事件："},{text: "猜猜我是谁？"}]
+bossbar set yws:event_name name ["[",{score:{name:"#Game",objective:"EventCount"},extra:["/",{score:{name:"#System",objective:"EventCount"}}]},"] ",{text: "当前事件："},{text: "猜猜我是谁？"}]
 
 execute as @a run function yws:game/event/pool/b/18/dialog/init with entity @s
 

@@ -25,7 +25,7 @@
             },
             "action": {
                 "type": "run_command",
-                "command": "function yws:game/start"
+                "command": "trigger TriggerFunction set 1"
             }
         },
         {
@@ -34,7 +34,7 @@
             },
             "action": {
                 "type": "run_command",
-                "command": "dialog show @s yws:settings/main"
+                "command": "trigger TriggerDialog set 2"
             }
         },
         {
@@ -44,7 +44,7 @@
             },
             "action": {
                 "type": "run_command",
-                "command": "function yws:game/end"
+                "command": "trigger TriggerFunction set 2"
             }
         }
     ],

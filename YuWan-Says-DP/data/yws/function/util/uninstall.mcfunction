@@ -38,6 +38,7 @@ scoreboard objectives remove Killedby
 scoreboard objectives remove Killedby_Zombie
 scoreboard objectives remove Killedby_Skeleton
 scoreboard objectives remove Killedby_Creeper
+scoreboard objectives remove Killedby_Player
 scoreboard objectives remove DamageDealt
 scoreboard objectives remove IsDead
 scoreboard objectives remove SwimCm
@@ -62,3 +63,5 @@ scoreboard objectives remove Pickedup_String
 scoreboard objectives remove Pickedup_Dirt
 scoreboard objectives remove Pickedup_WheatSeeds
 scoreboard objectives remove ShootBeesTimes
+scoreboard objectives remove UsedWoodenPickaxe
+scoreboard objectives remove Pose_y

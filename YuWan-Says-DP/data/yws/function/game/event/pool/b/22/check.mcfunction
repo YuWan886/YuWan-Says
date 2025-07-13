@@ -1,0 +1,1 @@
+execute as @a[tag=!finish,scores={UsedWoodenPickaxe=59..}] run function yws:game/event/finish_2

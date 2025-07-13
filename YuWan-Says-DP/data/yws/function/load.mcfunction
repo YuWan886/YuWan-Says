@@ -14,6 +14,11 @@ scoreboard objectives add PlayerCount dummy {text: "玩家数"}
 scoreboard objectives add OutCount dummy {text: "玩家淘汰数"}
 scoreboard objectives add FinishCount dummy {text: "玩家完成数"}
 scoreboard objectives add GameRule_Keep dummy {text: "保留物品栏"}
+scoreboard objectives add ReadyTime dummy {text:"准备时间"}
+scoreboard objectives add TriggerFunction trigger
+scoreboard players enable @a TriggerFunction
+scoreboard objectives add TriggerDialog trigger
+scoreboard players enable @a TriggerDialog
 
 scoreboard objectives add TimeRate dummy
 
@@ -26,5 +31,3 @@ function yws:settings/default
 function yws:settings/team/setup
 
 function yws:recipe
-
-forceload add 0 0 2 2

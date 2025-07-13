@@ -1,8 +1,8 @@
 # 1-3 名
 
-summon marker 0 100 0 {Tags:["1st","sb"]}
-summon marker 0 100 0 {Tags:["2nd","sb"]}
-summon marker 0 100 0 {Tags:["3rd","sb"]}
+execute at @r run summon marker ~ ~ ~ {Tags:["1st","sb"]}
+execute at @r run summon marker ~ ~ ~ {Tags:["2nd","sb"]}
+execute at @r run summon marker ~ ~ ~ {Tags:["3rd","sb"]}
 
 scoreboard players operation @e[type=marker,tag=1st] ShootBeesTimes > @a ShootBeesTimes
 execute as @a if score @s ShootBeesTimes = @e[type=marker,tag=1st,limit=1] ShootBeesTimes run tag @s add sb_1st
@@ -15,10 +15,12 @@ execute as @a if score @s ShootBeesTimes = @e[type=marker,tag=3rd,limit=1] Shoot
 
 kill @e[type=marker,tag=sb]
 
-tellraw @a [\
-           {text: "恭喜"},{selector: "@a[tag=sb_1st]"},{text: "获得"},{text: "§6\ud83c\udfc6§r第一名"},"\n",\
-           {text: "恭喜"},{selector: "@a[tag=sb_2nd]"},{text: "获得"},{text: "\ud83e\udd48第二名"},"\n",\
-           {text: "恭喜"},{selector: "@a[tag=sb_3rd]"},{text: "获得"},{text: "§n\ud83e\udd49§r第三名"}]
+tellraw @a "\n\n=========="
+tellraw @a [{text: "恭喜"},{selector: "@a[tag=sb_1st]"},{text: "获得"},{text: "第一名"}]
+execute if score #Game PlayerCount matches 2.. run tellraw @a [{text: "恭喜"},{selector: "@a[tag=sb_2nd]"},{text: "获得"},{text: "第二名"}]
+execute if score #Game PlayerCount matches 3.. run tellraw @a [{text: "恭喜"},{selector: "@a[tag=sb_3rd]"},{text: "获得"},{text: "第三名"}]
+tellraw @a "\n\n=========="
+
 
 scoreboard players add @a[tag=sb_1st] Points 3
 scoreboard players add @a[tag=sb_2nd] Points 2

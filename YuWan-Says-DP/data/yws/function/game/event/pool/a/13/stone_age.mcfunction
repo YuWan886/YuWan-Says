@@ -3,9 +3,9 @@
 title @a title {text: "事件刷新"}
 title @a subtitle {text: "石器时代"}
 
-tellraw @a ["",{text: "\n\n[Tip]",color:"yellow"},{text: "不要使用铁/金/钻石工具",color: "gray"}]
+tellraw @a ["",{text: "\n✦ ",color:"gray"},{text:"T",color:"gold"},{text:"I",color:"yellow"},{text:"P",color:"white"},{text: " ✦\n",color:"gray"},{text: "不要使用铁/金/钻石工具",color: "gray"}]
 
-bossbar set yws:event_name name [{text: "当前事件："},{text: "石器时代"}]
+bossbar set yws:event_name name ["[",{score:{name:"#Game",objective:"EventCount"},extra:["/",{score:{name:"#System",objective:"EventCount"}}]},"] ",{text: "当前事件："},{text: "石器时代"}]
 
 scoreboard objectives add UsedIronSword used:iron_sword
 scoreboard objectives add UsedIronAxe used:iron_axe

@@ -1,0 +1,1 @@
+execute as @a[tag=!out,predicate=yws:event/a/not_in_water] at @s run function yws:game/event/out_1

@@ -43,7 +43,7 @@
             },
             "action": {
                 "type": "run_command",
-                "command": "dialog show @s yws:settings/teammode"
+                "command": "trigger TriggerDialog set 3"
             }
         },
         {
@@ -62,7 +62,7 @@
         },
         "action": {
             "type": "run_command",
-            "command": "dialog show @s yws:control"
+            "command": "trigger TriggerDialog set 1"
         }
     }
 }

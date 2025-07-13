@@ -3,9 +3,9 @@
 title @a title {text: "事件刷新"}
 title @a subtitle {text: "007"}
 
-tellraw @a ["",{text: "\n\n[Tip]",color:"yellow"},{text: "生为社畜,死当鬼畜",color: "gray"}]
+tellraw @a ["",{text: "\n✦ ",color:"gray"},{text:"T",color:"gold"},{text:"I",color:"yellow"},{text:"P",color:"white"},{text: " ✦\n",color:"gray"},{text: "生为社畜,死当鬼畜",color: "gray"}]
 
-bossbar set yws:event_name name [{text: "当前事件："},{text: "007"}]
+bossbar set yws:event_name name ["[",{score:{name:"#Game",objective:"EventCount"},extra:["/",{score:{name:"#System",objective:"EventCount"}}]},"] ",{text: "当前事件："},{text: "007"}]
 
 scoreboard objectives add IsDead deathCount {text: "死亡检测"}
 scoreboard players set @a IsDead 0
