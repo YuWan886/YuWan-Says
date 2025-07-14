@@ -1,0 +1,28 @@
+{
+    "criteria": {
+        "sell_blood_fail": {
+            "trigger": "entity_hurt_player",
+            "conditions": {
+                "damage": {
+                    "taken": {
+                        "max": 5.999999
+                    }
+                },
+                "player": [
+                    {
+                        "condition": "entity_scores",
+                        "entity": "this",
+                        "scores": {
+                            "Sell_Blood": {
+                                "min": 0
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "rewards": {
+        "function": "yws:game/event/pool/b/25/sold_fail"
+    }
+}

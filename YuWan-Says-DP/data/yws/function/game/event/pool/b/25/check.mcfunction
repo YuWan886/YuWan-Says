@@ -1,0 +1,1 @@
+execute as @a[tag=!finish,scores={Sell_Blood=60..}] at @s run function yws:game/event/finish_2

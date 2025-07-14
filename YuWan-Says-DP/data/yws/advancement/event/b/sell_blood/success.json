@@ -1,0 +1,32 @@
+{
+    "criteria": {
+        "sell_blood_success": {
+            "trigger": "entity_hurt_player",
+            "conditions": {
+                "damage": {
+                    "taken": {
+                        "min": 6
+                    }
+                },
+                "player": [
+                    {
+                        "condition": "entity_scores",
+                        "entity": "this",
+                        "scores": {
+                            "IsHurt": {
+                                "min": 60,
+                                "max": 200
+                            },
+                            "Sell_Blood": {
+                                "min": 0
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "rewards": {
+        "function": "yws:game/event/pool/b/25/sold_success"
+    }
+}

@@ -20,6 +20,9 @@ scoreboard players enable @a TriggerFunction
 scoreboard objectives add TriggerDialog trigger
 scoreboard players enable @a TriggerDialog
 
+scoreboard objectives add 10 dummy
+scoreboard players set #Math 10 10
+
 scoreboard objectives add TimeRate dummy
 
 # 队伍

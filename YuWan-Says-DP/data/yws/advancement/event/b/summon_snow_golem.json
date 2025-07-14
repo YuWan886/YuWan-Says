@@ -1,0 +1,12 @@
+{
+    "criteria": {
+        "summon_snow_golem":{
+            "trigger": "summoned_entity",
+            "conditions": {
+                "entity": {
+                    "type": "snow_golem"
+                }
+            }
+        }
+    }
+}

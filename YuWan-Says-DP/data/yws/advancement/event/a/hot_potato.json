@@ -1,0 +1,41 @@
+{
+    "criteria": {
+        "drop_potato": {
+            "trigger": "inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": "baked_potato",
+                        "components": {
+                            "custom_name": {
+                                "text": "烤土豆",
+                                "color": "dark_red",
+                                "italic": false
+                            },
+                            "lore": [
+                                {
+                                    "text": "按",
+                                    "extra": [
+                                        {
+                                            "keybind": "key.drop",
+                                            "bold": true
+                                        },
+                                        {
+                                            "text": "键传递给下一个玩家"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "custom_model_data": {
+                                "strings": ["hot_potato"]
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "rewards": {
+        "function": "yws:game/event/pool/a/25/drop_potato"
+    }
+}

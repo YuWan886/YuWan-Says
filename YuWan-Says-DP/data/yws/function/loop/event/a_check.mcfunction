@@ -22,3 +22,6 @@ execute if score #Game EventID matches 20 run function yws:game/event/pool/a/20/
 execute if score #Game EventID matches 21 run function yws:game/event/pool/a/21/check
 execute if score #Game EventID matches 22 run function yws:game/event/pool/a/22/check
 execute if score #Game EventID matches 23 run function yws:game/event/pool/a/23/check
+execute if score #Game EventID matches 24 run function yws:game/event/pool/a/24/check
+execute if score #Game EventID matches 25 run function yws:game/event/pool/a/25/check
+execute if score #Game EventID matches 26 run function yws:game/event/pool/a/26/check

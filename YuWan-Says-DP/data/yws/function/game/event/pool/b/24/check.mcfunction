@@ -1,0 +1,1 @@
+execute as @a[tag=!finish,advancements={story/enter_the_nether=true}] at @s run function yws:game/event/finish_2

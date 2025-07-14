@@ -1,0 +1,1 @@
+execute as @a[tag=!out] at @s if data entity @s {OnGround:true} run function yws:game/event/out_1

@@ -1,5 +1,5 @@
 # A类
-execute store result score #Game EventID run random value 1..22
+execute store result score #Game EventID run random value 1..25
 
 execute if score #Game EventID matches 1 run function yws:game/event/pool/a/1/not_on_grass_block
 execute if score #Game EventID matches 2 run function yws:game/event/pool/a/2/not_swimming
@@ -23,3 +23,6 @@ execute if score #Game EventID matches 19 run function yws:game/event/pool/a/19/
 execute if score #Game EventID matches 20 run function yws:game/event/pool/a/20/do_not_pick
 execute if score #Game EventID matches 21 run function yws:game/event/pool/a/21/no_hotbar
 execute if score #Game EventID matches 22 run function yws:game/event/pool/a/22/not_in_water
+execute if score #Game EventID matches 23 run function yws:game/event/pool/a/23/not_noground
+execute if score #Game EventID matches 24 run function yws:game/event/pool/a/24/health_hp
+execute if score #Game EventID matches 25 run function yws:game/event/pool/a/25/hot_potato

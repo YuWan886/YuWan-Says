@@ -65,3 +65,6 @@ scoreboard objectives remove Pickedup_WheatSeeds
 scoreboard objectives remove ShootBeesTimes
 scoreboard objectives remove UsedWoodenPickaxe
 scoreboard objectives remove Pose_y
+scoreboard objectives remove HP
+scoreboard objectives remove PotatoTime
+scoreboard objectives remove Sell_Blood
